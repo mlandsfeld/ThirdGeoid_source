@@ -198,7 +198,36 @@ li.dropdown {
 
 <script>
   var c = 0;
-  const d = new Date();
+  var d = new Date();
+
+  console.log("date: ", d)
+  console.log("date(mm): ", d.getMilliseconds());
+
+  var _url="https://cdn.hpwren.ucsd.edu/MTA/syp-axis/large/20251230/Q4/1767123396.jpg" ;
+  var http = new XMLHttpRequest();
+  http.open('HEAD', _url, false);
+  http.send();
+  console.log("status: ", http.status);
+  http.status !=403 ? console.log('EXISTS') : console.log('DOES NOT EXIST') ;
+
+  var _url="https://cdn.hpwren.ucsd.edu/MTA/syp-axis/large/20251230/Q4/1767123396x.jpg" ;
+  http.open('HEAD', _url, false);
+  http.send();
+  console.log("status: ", http.status);
+  http.status !=403 ? console.log('EXISTS') : console.log('DOES NOT EXIST');
+
+  d = new Date();
+  console.log("date(mm): ", d.getMilliseconds());
+
+  function checkImageExists(url) {
+
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(true); // Image loaded successfully
+      img.onerror = () => reject(false); // Image failed to load (404 or other error)
+      img.src = url;
+    });
+  }
 
   function refreshImage() {
 
@@ -206,10 +235,12 @@ li.dropdown {
     document.getElementById('SYM_webcam').src='http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg?'+d.getMilliseconds();
     var t = setTimeout(refreshImage,5000);
     c=c+1;
-    console.log('cx: ', c);
+    console.log('c: ', c);
     if(c>5)
       clearTimeout(t);
   }
+
+
 </script>
 
 </head>
@@ -263,7 +294,7 @@ li.dropdown {
     <br>
 
 <!--
-    < !-- ============ Visible Channel SB with Topo BG ============ -- >
+    < !-- ============ Visible Channel SB with Topo BG ============ -->
     <div style="width:50%;margin-left: auto;margin-right: auto;">
       <h1> Visible Channel SB </h1>
       <a href="http://www.wunderground.com/cgi-bin/satblast/satBlast?lat=34.5&amp;lon=-120.064621&amp;zoom=6&amp;height=480&amp;width=640&amp;SatType=VIS&amp;brand=">
@@ -275,7 +306,7 @@ li.dropdown {
     <br>
     <br>
 
-    <! -- ============ Visible Channel SB ============ -- >
+    <!-- ============ Visible Channel SB ============ -->
     <h1> Visible Channel NRL </h1>
     <div style="width:50%;margin-left: auto;margin-right: auto;">
       <a href="http://www.nrlmry.navy.mil/sat-bin/display10.cgi?SIZE=thumb&amp;PHOT=yes&amp;AREA=pacific/eastern/pt_mugu&amp;PROD=vis&amp;NAV=epac_westcoast&amp;CGI=epac_westcoast.cgi&amp;DISPLAY=Latest&amp;MOSAIC_SCALE=15&amp;CURRENT=LATEST.jpg">
@@ -286,14 +317,18 @@ li.dropdown {
     <br>
     <br>
 -->
+<!-- ============ Santa Ynez Mt. webcam ============ -->
 
+<!--
     <a href="http://hpwren.ucsd.edu/cameras/S/SD/syp.html">
       <h1 href="http://hpwren.ucsd.edu/cameras/S/SD/syp.html"> Santa Ynez Mt. webcams </h1>
     </a>
-    <!-- ============ Santa Ynez Mt. webcam ============ -->
 
     <img src="http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg" id="SYM_webcam" onload="refreshImage()" width="800" border="1" />
 
+    checkImageExists("https://cdn.hpwren.ucsd.edu/MTA/syp-axis/large/20251230/Q4/1767123396.jpg")
+      .then(() => console.log('Image exists!'))
+      .catch(() => console.log('Image does not exist or failed to load.'));
 
     <div class="row_flex">
       <div class="column2">
@@ -310,6 +345,7 @@ li.dropdown {
     <br>
     <br>
 
+-->
 
     <!-- ============ Wind Speed SB 9am & 6pm PT ============ -->
     <h1> Wind Speed SB 9am & 6pm PT</h1>
@@ -724,24 +760,6 @@ new EwxMap({
     <!-- ============= 200 mb Wind Speed (current) ============= -->
     <a  href="http://wxmaps.org/pix/hemi.jet.html">
       <img src="http://wxmaps.org/pix/hemi5.00hr.png">
-    </a>
-    <br>
-    <br>
-
-    <!-- ============= 200 mb Wind Speed (0, 1 and 2 day forecasts) ============= -->
-    <a href="http://wxmaps.org/pix/hemi.jet.html">
-      <img src="http://wxmaps.org/pix/hemi5.00hr.png" height="310" width="400">
-      <img src="http://wxmaps.org/pix/hemi5.24hr.png" height="310" width="400">
-      <img src="http://wxmaps.org/pix/hemi5.48hr.png" height="310" width="400">
-    </a>
-    <br>
-
-    <!-- ============= 200 mb Wind Speed (3, 4 and 5 day forecasts) ============= -->
-
-    <a href="http://wxmaps.org/pix/hemi.jet.html">
-      <img src="http://wxmaps.org/pix/hemi5.72hr.png" height="310" width="400">
-      <img src="http://wxmaps.org/pix/hemi5.96hr.png" height="310" width="400">
-      <img src="http://wxmaps.org/pix/hemi5.120hr.png" height="310" width="400">
     </a>
     <br>
     <br>
