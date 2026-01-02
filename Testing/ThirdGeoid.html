@@ -197,11 +197,53 @@ li.dropdown {
 </style>
 
 <script>
+
+/**
+ * Calculates the number of seconds that have passed in a specific year up to a given date.
+ * @param {Date} targetDate The date object to check.
+ * @returns {number} The total seconds passed in the year.
+ */
+function getSecondsOfYear(targetDate) {
+  // 1. Get the year from the target date
+  const year = targetDate.getFullYear();
+
+  // 2. Create a Date object for the very beginning of that year (January 1st, 00:00:00)
+  // Note: Months are 0-based in JavaScript (0 is January, 11 is December).
+  const startOfYear = new Date(year, 0, 1, 0, 0, 0, 0);
+
+  // 3. Get the time values in milliseconds since the Unix epoch (Jan 1, 1970 UTC)
+  const targetTime = targetDate.getTime();
+  const startTime = startOfYear.getTime();
+
+  // 4. Calculate the difference in milliseconds
+  const diffInMilliseconds = targetTime - startTime;
+
+  // 5. Convert milliseconds to seconds and round down to the nearest whole number
+  const secondsInYear = Math.floor(diffInMilliseconds / 1000);
+
+  return secondsInYear;
+}
+
+
+  // Example 1: The current date and time
+  const now = new Date();
+  const secondsNow = getSecondsOfYear(now);
+  console.log(`Seconds passed this year (current date): ${secondsNow}`);
+
+  // 1767125142 latest file 2:20pm ish 12/31/25
+  // 31501276 seconds of year
+  // 1767125142 - 31501276 = 1735623866
+  var seconds2025 = 1735623866;
+  const fileName = seconds2025 + secondsNow + ".jpg";
+  console.log('Search file name: ', fileName);
+
+</script>
+<script>
   var c = 0;
   var d = new Date();
 
   console.log("date: ", d)
-  console.log("date(mm): ", d.getMilliseconds());
+  console.log("date(sec): ", d.getSeconds());
 
   var _url="https://cdn.hpwren.ucsd.edu/MTA/syp-axis/large/20251230/Q4/1767123396.jpg" ;
   var http = new XMLHttpRequest();
@@ -217,7 +259,7 @@ li.dropdown {
   http.status !=403 ? console.log('EXISTS') : console.log('DOES NOT EXIST');
 
   d = new Date();
-  console.log("date(mm): ", d.getMilliseconds());
+  console.log("date(sec): ", d.getSeconds());
 
   function checkImageExists(url) {
 
