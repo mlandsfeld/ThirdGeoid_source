@@ -130,112 +130,155 @@
 </style>
 
 <style>
-h1 {
-  font-size: 40;
-  text-align: center;
-  color: midnightblue;
-}
+  h1 {
+    font-size: 40;
+    text-align: center;
+    color: midnightblue;
+  }
 
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
 
 
-li a, .dropbtn {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+  li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
 
-li a:hover, .dropdown:hover .dropbtn {
-  background-color: green;
-}
+  li a:hover, .dropdown:hover .dropbtn {
+    background-color: green;
+  }
 
-li.dropdown {
-  display: inline-block;
-}
+  li.dropdown {
+    display: inline-block;
+  }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
 
-.dropdown-content a:hover {background-color: #f1f1f1;}
+  .dropdown-content a:hover {background-color: #f1f1f1;}
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
 </style>
 
+<style>
+  .cen_container {
+    text-align: center; /* Centers all inline elements inside the div */
+    width: 100%;
+  }
+</style>
 </head>
 
 
-
+<!-- ================================ ========== ================================ -->
+<!-- ================================ ========== ================================ -->
 <!-- ================================ START BODY ================================ -->
+<!-- ================================ ========== ================================ -->
+<!-- ================================ ========== ================================ -->
 
-<body style="background-color: light purple;">
+<body style="background-color: grey;">
 
-<ul>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">xDropdown</a>
-    <div class="dropdown-content">
-      <a href="#home">Home</a>
-      <a href="#links">Links</a>
-      <a href="#bottom">Bottom</a>
-    </div>
-  </li>
-</ul>
+  <ul>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+      <div class="dropdown-content">
+        <a href="#home">Home</a>
+        <a href="#links">Links</a>
+        <a href="#bottom">Bottom</a>
+      </div>
+    </li>
+  </ul>
 
 
-   <a id=home> </a>
+  <a id=home> </a>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <!-- ============   GEOS West Full disk  ============ -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- ============   GOES West Full disk  ============ -->
 
-    <div style="width:50.0%; margin-left:auto; margin-right:auto;">
+  <div class="cen_container">
+    <h1> GOES West Full Disk </h1>
+    <a href="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/1808x1808.jpg">
+      <img src="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg" style="width:66.0%;">
+    </a>
+  </div>
+
+<!-- this works
+  <img src="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg"
+    style="width:66.0%; margin-left:auto; margin-right:auto; display:block;">
+-->
+
+  <br>
+  <br>
+
+  <!-- ============= Sun and Moon Positions & Analemma (current) ============= -->
+
+  <div class="cen_container">
+    <h1> Earth and Moon Positions </h1>
+
+    <a href="http://timeanddate.com/worldclock/sunearth.html">
+        <img src="http://www.timeanddate.com/scripts/sunmap.php?obj=moon" style="width:66.0%;">
       </a>
-      <a href="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/1808x1808.jpg">
-        <img src="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg" >
-      </a>
-      <br>
-    </div>
+  </div>
 
-    <br>
-    <br>
-    <!-- ============ Willey Weather Forecast ============ -->
-    <div style="width:50.0%; margin-left:auto; margin-right:auto;">
-      <h1> Willey Weather Forecast </h1>
-      <iframe style="display: block;" src="http://cdnres.willyweather.com/widget/loadView.html?id=53467" width="683" height="92"
-        frameborder="0" scrolling="no">
-      </iframe>
-      <a style="width: 20px;position: relative;height: 92px;text-indent: -9999em;float: right;z-index: 1;
-        margin: -92px 0 0 0" href="http://www.willyweather.com/ca/santa-barbara-county/goleta.html">Goleta weather</a>
-    </div>
-    <br>
-    <br>
+  <br>
+  <br>
+
+  <!-- ============ Willey Weather Forecast ============ -->
+  <div style="width:50.0%; margin-left:auto; margin-right:auto;">
+    <h1> Willy Weather Forecast </h1>
+    <iframe style="display: block;" src="http://cdnres.willyweather.com/widget/loadView.html?id=53467" width="683" height="92"
+      frameborder="0" scrolling="no">
+    </iframe>
+    <a style="width: 20px;position: relative;height: 92px;text-indent: -9999em;float: right;z-index: 1;
+      margin: -92px 0 0 0" href="http://www.willyweather.com/ca/santa-barbara-county/goleta.html">Goleta weather</a>
+  </div>
+  <br>
+  <br>
+
+<!-- doesn't work yet... need to make new widget(s)
+
+  <div class="cen_container">
+    <h1> Willey Weather Forecast </h1>
+    <iframe style="display: block; width:40%" src="http://cdnres.willyweather.com/widget/loadView.html?id=53467"
+      frameborder="0" scrolling="no">
+    </iframe>
+    <a style="width: 20px;position: relative;height: 92px;text-indent: -9999em;float: right;z-index: 1;
+      margin: -92px 0 0 0" href="http://www.willyweather.com/ca/santa-barbara-county/goleta.html">Goleta weather</a>
+  </div>
+
+  <br>
+  <br>
+
+-->
 <!--
 
     <div style="width:50%;margin-left: auto;margin-right: auto;">
@@ -260,25 +303,26 @@ li.dropdown {
     <br>
 
 -->
-    <a href="https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg">
-      <h1 href="https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg"> Santa Ynez Mt. webcams </h1>
-    </a>
-    <!-- ============ Santa Ynez Mt. webcam ============ -->
-    <div class="row_flex">
-      <div class="column2">
-        <a href="http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg">
-          <img src="http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg" style="width:100%">
-        </a>
-      </div>
-      <div class="column2">
-        <a href="http://hpwren.ucsd.edu/cameras/L/syp-n-mobo-c.jpg">
-          <img src="http://hpwren.ucsd.edu/cameras/L/syp-n-mobo-c.jpg" style="width:100%">
-        </a>
-      </div>
-    </div>
-    <br>
-    <br>
 
+  <!-- ============ Santa Barbara Webcams ============ -->
+
+  <a href="http://hpwren.ucsd.edu/cameras/S/SD/syp.html">
+    <h1 href="http://hpwren.ucsd.edu/cameras/S/SD/syp.html"> Santa Barbara webcams </h1>
+  </a>
+  <div class="row_flex">
+    <div class="column2">
+      <a href="https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg">
+        <img src="https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg" style="width:100%">
+      </a>
+    </div>
+    <div class="column2">
+      <a href="https://cdn.hpwren.ucsd.edu/RT/ucsb-axis.jpg">
+        <img src="https://cdn.hpwren.ucsd.edu/RT/ucsb-axis.jpg" style="width:100%">
+      </a>
+    </div>
+  </div>
+  <br>
+  <br>
 
     <!-- ============   GEOS West SW US  ============ -->
     <!-- ============   GEOS East Conus  ============ -->
@@ -697,7 +741,8 @@ li.dropdown {
     <br>
     <br>
 
-    <!-- ============= 200 mb Wind Speed (0, 1 and 2 day forecasts) ============= -->
+    <!--
+     ============= 200 mb Wind Speed (0, 1 and 2 day forecasts) =============
     <a href="http://wxmaps.org/pix/hemi.jet.html">
       <img src="http://wxmaps.org/pix/hemi5.00hr.png" height="310" width="400">
       <img src="http://wxmaps.org/pix/hemi5.24hr.png" height="310" width="400">
@@ -705,7 +750,7 @@ li.dropdown {
     </a>
     <br>
 
-    <!-- ============= 200 mb Wind Speed (3, 4 and 5 day forecasts) ============= -->
+    < !-- ============= 200 mb Wind Speed (3, 4 and 5 day forecasts) =============
 
     <a href="http://wxmaps.org/pix/hemi.jet.html">
       <img src="http://wxmaps.org/pix/hemi5.72hr.png" height="310" width="400">
@@ -715,7 +760,7 @@ li.dropdown {
     <br>
     <br>
 
-
+   -->
 
   </body>
 </html>
