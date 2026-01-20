@@ -16,7 +16,7 @@
   let one_hr = 3600000;
   let one_min = 60000;
 
-  let myVar = setInterval(myTimer, one_min);
+  let interval = setInterval(myTimer, one_min/4);
   let timeout = setTimeout(stopTimer, one_hr*2);
   let counter = 0;
 
@@ -29,8 +29,10 @@
 	  document.getElementById("SYM_webcam").src='https://cdn.hpwren.ucsd.edu/RT/sojr-e-mobo-c.jpg?c='+counter;
 		*/
 	  /* Santa Ynez peak */
-		document.getElementById("SYM_webcam").src='https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg';
-		//document.getElementById("SYM_webcam").src='http://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg?c='+counter;
+		// doesn't work
+		//document.getElementById("SYM_webcam").src='https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg';
+
+		document.getElementById("SYM_webcam").src='https://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg?c='+counter;
 
 	  console.log(d.toLocaleTimeString(), ', ', d.getMilliseconds());
 	  console.log('count: ', counter);
@@ -39,7 +41,7 @@
   }
 
   function stopTimer() {
-    clearInterval(myVar);
+    clearInterval(interval);
   }
 
 </script>
