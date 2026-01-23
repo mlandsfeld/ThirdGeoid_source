@@ -22,6 +22,8 @@
   let counter = 0;
 
 	console.log('interval: ', interval);
+	const d = new Date();
+	console.log(d.toLocaleTimeString(), ', count: ', counter);
 
 
   function myTimer() {
@@ -38,10 +40,11 @@
 
 		document.getElementById("SYM_webcam").src='https://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg?c='+counter;
 
+		counter++;
+
 		console.log(d.toLocaleTimeString(), ', count: ', counter);
 		//console.log(d.toLocaleTimeString(), ', ', d.getMilliseconds());
 
-	  counter++;
   }
 
   function stopTimer() {
