@@ -36,9 +36,10 @@
 		*/
 	  /* Santa Ynez peak */
 		// doesn't work
-		//document.getElementById("SYM_webcam").src='https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg';
+		console.log("https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg"+ "?noCache=" + new Date().getTime());
+		document.getElementById("SYM_webcam").src='https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg'+ "?noCache=" + new Date().getTime();;
 
-		document.getElementById("SYM_webcam").src='https://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg?c='+counter;
+		//document.getElementById("SYM_webcam").src='https://hpwren.ucsd.edu/cameras/L/syp-e-mobo-c.jpg?c='+counter;
 
 		counter++;
 

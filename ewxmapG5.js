@@ -1,8 +1,8 @@
 var EwxMapG5 = function(configuration) {
 
   this.config = configuration;
-  var subDataset = this.config.subDataset;
-  console.log("periodicity; ", this.config.periodicity);
+  //var subDataset = this.config.subDataset; delete if possible after testing 2026/1/25
+  //console.log("subDataset; ", subDataset);
 
   this.config.period = this.config.period ? this.config.period : 'latest';
   var latest = this.config.period == 'latest';
@@ -81,34 +81,31 @@ var EwxMapG5 = function(configuration) {
         $("<link/>", {
           rel: "stylesheet",
           type: "text/css",
-          href: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css"
+          href: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"
         }).appendTo("head");
 
         $("<link/>", {
           rel: "stylesheet",
           type: "text/css",
-          href: "https://snippets.chc.ucsb.edu/styles.css"
-          // xhref: "file:///Users/marty/Projects/EWX/snippets/Snippets/styles.css"
-          // href: "styles.css" mfl
+          href: "./styles.css"
         }).appendTo("head");
 
         window.MAP_STYLES_LOADED = true;
       }
 
       if (window.L === undefined) {
-        console.log('in window.L === undefined...');
         $.getScript("https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js").done(function() {
           if (done) done.call(_this, _this.loadEwxConfig);
         });
       } else {
-        console.log('in window.L NOT === undefined else...');
-
         if (done) done.call(_this, _this.loadEwxConfig);
       }
     });
   };
 
   // ----------------------------------------------------------------------------
+
+/* mfl Remove after lots of testing 2026/1/23
 
   this.loadTempralConfigData = function(done) { //mfl NOT USED!
 
@@ -124,7 +121,7 @@ var EwxMapG5 = function(configuration) {
       baseUrl = a.protocol + '//' + a.hostname + ':' + a.port;
       ewxUrlPath = a.pathname;
 
-      console.log('baseUrl: ', baseUrl);
+      console.log('in showTimeNav, baseUrl: ', baseUrl);
 
 
       geoengineUrl = a.protocol + "//" + a.hostname;
@@ -152,7 +149,7 @@ var EwxMapG5 = function(configuration) {
       if (done) done.call(_this, _this.calculateDataItemName);
     }
   };
-
+*/
 
   // --------- loadEwxConfig --------------------------------------------------------
 
@@ -168,7 +165,7 @@ var EwxMapG5 = function(configuration) {
     console.log('in loadEwxConfig...');
 
     baseUrl = this.config.ewxUrl;
-    console.log('baseUrl: ', baseUrl);
+    console.log('loadEwxConfig, baseUrl: ', baseUrl);
 
     // I don't think this a variable is used
     var a = $('<a>', {
@@ -189,8 +186,8 @@ var EwxMapG5 = function(configuration) {
     var myurl = 'https://chc-ewx3.chc.ucsb.edu/api/rest/version/5.0/config'
 
 
-    console.log('congif url: ', myurl);
-    console.log('_this.config.period: ', _this.config.period);
+    console.log('congif myurl: ', myurl);
+    console.log('_this.config: ', _this.config);
 
 
     //url: geoengineUrl + '/rest/dataset/' + _this.config.dataset + '/region/' + _this.config.region + '/periodicity/' +
@@ -198,7 +195,6 @@ var EwxMapG5 = function(configuration) {
 
     if (this.config.period == 'latest') {
       console.log('in latest...');
-      console.log('myurl...', myurl);
 
       $.ajax({
         url: myurl,
@@ -206,15 +202,12 @@ var EwxMapG5 = function(configuration) {
         jsonp: "callback",
         dataType: "jsonp"
       }).done(function(data) {
-        console.log('in done...');
 
         ewx_config = data;
         console.log('ewx_config: ', ewx_config);
 
         //console.log('done downloading EWX config...');
         console.log('ewx_config for ', _this.config.dataset,': ', ewx_config[_this.config.dataset]);
-
-        //dataItemName = data.data.regions[0].periodicities[0].statistics[0].periodicCoverages[0].name;
 
         var _ewx_config = ewx_config[_this.config.dataset];
         console.log('_this.config.dataset: ', _this.config.dataset);
@@ -240,22 +233,20 @@ var EwxMapG5 = function(configuration) {
           periodicity = '3_monthly';
         }
 
+        console.log('subDataset: ', _this.config.subDataset);
         dataItemName = _this.config.subDataset.toLowerCase() + '_' + _this.config.region + '_' + periodicity + '_' + _this.config.statistic;
 
         if (_this.config.periodicity === '1-day') {
           console.log('in 1-day periodicity...')
           dataItemName = _this.config.subDataset.toLowerCase() + '_' + _this.config.region + '_' + _this.config.forecastPeriod + '_' + _this.config.statistic;
         }
-        console.log('dataItemNamex: ', dataItemName);
-        //console.log('dataset config: ', ewx_config.dataset[dataItemName]);
+        console.log('dataItemName: ', dataItemName);
 
         layerName = 'EWX_' + dataItemName + ':' + dataItemName;
         _this.config.start_date = _ewx_config[dataItemName].end.granule_start;
         _this.config.start_date_arr = _this.config.start_date.split("-");
         console.log('start_date: ', _this.config.start_date);
         console.log('layerName: ', layerName);
-
-        //_this.config.period = data.data.regions[0].periodicities[0].statistics[0].end;
 
         // MFL All the following need to calc a wmstTime **********
 
@@ -271,7 +262,8 @@ var EwxMapG5 = function(configuration) {
           _this.config.period.temporal1 = _this.config.period.day;
         } else if (_this.config.periodicity === '1-pentad') {
           wmstTime = _ewx_config[dataItemName].end.granule_start;
-          console.log('in loadEwxConfig, wmstTime: ', wmstTime);
+          //wmstTime = '2025-12-26';
+          console.log('in pentad loadEwxConfig, wmstTime: ', wmstTime);
           _this.config.temporal1 = _this.config.period.period;
           _this.config.period.temporal1 = _this.config.period.pentad;
         } else {
@@ -331,11 +323,7 @@ var EwxMapG5 = function(configuration) {
     if (this.config.height) {
       rootNode.css('height', this.config.height + 'px');
     }
-/** nyet!   if (this.config.time) {
-      console.log('in this.config.time...')
-      rootNode.css('time', '2022-01-01');
-    }
-*/
+
     rootNode.css('border-left', '1px solid gray');
     rootNode.css('border-right', '1px solid gray');
     rootNode.css('border-bottom', '1px solid gray');
@@ -346,8 +334,9 @@ var EwxMapG5 = function(configuration) {
       attributionControl: false
     });
     this.map = map;
+    console.log('loaded map...');
+    console.log('xcreating mapLayer with TIME=', wmstTime);
 
-    console.log('creating mapLayer with TIME=', wmstTime);
     var mapLayer = L.tileLayer.wms(baseUrl + '/geoserver/wms', {
       layers: layerName,
       format: 'image/png',
@@ -358,25 +347,68 @@ var EwxMapG5 = function(configuration) {
     mapLayer.addTo(map);
     this.currentMapLayer = mapLayer;
 
-    var g20080Layer = L.tileLayer.wms(baseUrl + '/geoserver/wms', {
-      layers: "EWX_g2008_1:g2008_1",
-      format: 'image/png',
-      transparent: true,
-      version: '1.1.0'
-    });
-    g20080Layer.addTo(map);
-    this.g20080Layer = g20080Layer;
+    console.log('boundaries: ');
+    console.log('this.config: ', this.config);
 
-    var g20081Layer = L.tileLayer.wms(baseUrl + '/geoserver/wms', {
-      layers: "EWX_g2008_0:g2008_0",
-      format: 'image/png',
-      transparent: true,
-      version: '1.1.0'
-    });
-    g20081Layer.addTo(map);
-    this.g20081Layer = g20081Layer;
+    const boundaries = this.config.boundaries;
+    console.log('boundaries: ', boundaries);
+    var loadBoundary = boundaries.indexOf('gaul_2008_0');
 
-    var _this = this;
+    if (loadBoundary != -1) {
+      console.log('in loadBoundary: gaul_2008_0');
+      var g20081Layer = L.tileLayer.wms(baseUrl + '/geoserver/wms', {
+        layers: "EWX_g2008_0:g2008_0",
+        format: 'image/png',
+        transparent: true,
+        version: '1.1.0'
+      });
+      g20081Layer.addTo(map);
+      this.g20081Layer = g20081Layer;
+    };
+
+    loadBoundary = boundaries.indexOf('gaul_2008_1');
+    if (loadBoundary != -1) {
+      console.log('in loadBoundary: gaul_2008_1');
+      var g20080Layer = L.tileLayer.wms(baseUrl + '/geoserver/wms', {
+        layers: "EWX_g2008_1:g2008_1",
+        format: 'image/png',
+        transparent: true,
+        version: '1.1.0'
+      });
+      g20080Layer.addTo(map);
+      this.g20080Layer = g20080Layer;
+
+      var _this = this;
+    };
+
+    loadBoundary = boundaries.indexOf('gaul_2008_2');
+    if (loadBoundary != -1) {
+      console.log('in loadBoundary: gaul_2008_2');
+      var g20080Layer = L.tileLayer.wms(baseUrl + '/geoserver/wms', {
+        layers: "EWX_g2008_1:g2008_2",
+        format: 'image/png',
+        transparent: true,
+        version: '1.1.0'
+      });
+      g20080Layer.addTo(map);
+      this.g20080Layer = g20080Layer;
+
+      var _this = this;
+    };
+
+
+    loadBoundary = boundaries.indexOf('kenya_wards');
+   if (loadBoundary != -1) {
+      console.log('in loadBoundary: kenya_wards');
+      var wards1Layer = L.tileLayer.wms(baseUrl + '/geoserver/wms', {
+        layers: "EWX_shapefile_kenya_wards1:shapefile_kenya_wards1",
+        format: 'image/png',
+        transparent: true,
+        version: '1.1.0'
+      });
+      wards1Layer.addTo(map);
+      this.wards1Layer = wards1Layer;
+    };
 
     map.on('click', function(evt) {  //---------- MAP ON CLICK ---------//
 
@@ -474,8 +506,11 @@ var EwxMapG5 = function(configuration) {
 
     if (this.config.showTimeNav || this.config.showYearControl || this.config.showDekadControl || this.config.showMonthControl) {
       this.timeBar = $('<div class="time-nav-bar"></div>');
+      console.log("In this.config.showTimeNav or YearControl... ");
+      console.log("this.timeBar = ", this.timeBar);
 
       this.yearBackButton = $('<a class="previous-year-button" title="Previous year">&#171;</a>');
+      console.log("this.yearBackButton = ", this.yearBackButton);
       this.yearBackButton.on('click', $.proxy(this.changeTemporalIndex, this));
       this.yearForwardButton = $('<a class="next-year-button" title="Next year">&#187;</a>');
       this.yearForwardButton.on('click', $.proxy(this.changeTemporalIndex, this));
@@ -888,30 +923,31 @@ var EwxMapG5 = function(configuration) {
 
   // ----------------------------------------------------------------------------
 
-  this.updateRasterLayer = function(tokens) { // does not appear to be called anywhere
+    this.updateRasterLayer = function(tokens) { // does not appear to be called anywhere
 
-    console.log('in updateRasterLayer...');
-    var geoServerName = this.timeNavigator.assembleGeoServerName(tokens);
+      console.log('in updateRasterLayer...');
+      var geoServerName = this.timeNavigator.assembleGeoServerName(tokens);
 
-    dataItemName = geoServerName;
+      dataItemName = geoServerName;
 
-    this.config.period.year = Number(tokens.year);
-    this.config.period.temporal1 = Number(tokens.temporal1);
-    this.config.dataset = tokens.dataset;
-    this.config.subDataset = tokens.subDataset;
-    this.config.region = tokens.region;
-    this.config.periodicity = tokens.periodicity;
-    this.config.statistic = tokens.statistic;
-    this.config.units = tokens.units;
+      this.config.period.year = Number(tokens.year);
+      this.config.period.temporal1 = Number(tokens.temporal1);
+      this.config.dataset = tokens.dataset;
+      this.config.subDataset = tokens.subDataset;
+      this.config.boundaries = tokens.boundaries;
+      this.config.region = tokens.region;
+      this.config.periodicity = tokens.periodicity;
+      this.config.statistic = tokens.statistic;
+      this.config.units = tokens.units;
 
-    this.currentMapLayer.setParams({
-      layers: this.config.dataset + ":" + dataItemName
-    });
+      this.currentMapLayer.setParams({
+        layers: this.config.dataset + ":" + dataItemName
+      });
 
-    if (this.titleDiv) {
-      this.titleDiv.text(this.calculateTitle());
-    }
-  };
+      if (this.titleDiv) {
+        this.titleDiv.text(this.calculateTitle());
+      }
+    };
 
   // ----------------------------------------------------------------------------
   this.createLegend = function() { //not used when using nav buttons
