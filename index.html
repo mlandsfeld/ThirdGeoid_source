@@ -107,7 +107,7 @@
     	if (prevScrollpos > currentScrollPos) {
     		document.getElementById("navbar").style.top = "0";
     	} else {
-    		document.getElementById("navbar").style.top = "-50px";
+    		document.getElementById("navbar").style.top = "50px";
     	}
     	prevScrollpos = currentScrollPos;
     }
@@ -184,6 +184,28 @@ li.dropdown {
   display: block;
 }
 
+.button {
+  position: relative;
+  padding: 0.5em 1em;
+  border: 0;
+  border-radius: 0.5em;
+  background-color: #FFFFCC;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.button:active {
+  top: 2px;
+  left: 1px;
+  box-shadow: none;
+}
+
+.button:hover {
+  background-color: #FFFF33;
+}
+
 </style>
 
 
@@ -192,6 +214,20 @@ li.dropdown {
     text-align: center; /* Centers all inline elements inside the div */
     width: 100%;
   }
+
+<!-- ------- -->
+
+/* Change the image when the 'image-container' has the 'active-container' class */
+.active-container .target-image {
+  background-image: url('https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg');
+  display: none; /* Hide the <img> tag */
+}
+/* Ensure the background image has a size */
+.target-image {
+  background-size: cover;
+  width: 66.6%;
+  height: 66.6%;
+}
 </style>
 
 </head>
@@ -225,13 +261,53 @@ li.dropdown {
   <br>
   <br>
   <!-- ============   GOES West Full disk  ============ -->
+  <script>
+    function moveToSatWest() {
+      // Get the image element by its ID
+      let image = document.getElementById("geosta-image");
+      console.log('in moveToSatWest, image: ', image)
 
+      // Set the new image source (replace with your image URL or path)
+      image.src = "https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg";
+      image.href = "https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/1808x1808.jpg";
+    }
+  </script>
+
+  <script>
+    function moveToSatEast() {
+      // Get the image element by its ID
+      let image = document.getElementById("geosta-image");
+      console.log('in moveToSatWest, image: ', image)
+
+      // Set the new image source (replace with your image URL or path)
+      image.src = "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg";
+    }
+  </script>
+
+  <div class="cen_container">
+    <div class="image-container">
+      <img id="geosta-image" class="target-image" src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg"
+           alt="Geostationary Satellite Image">
+
+      <div class="selector-element">
+        <button class="button" onclick="moveToSatWest()" style="width: 50px; height: 35px;"> << </button>
+        <button class="button" onclick="moveToSatEast()" style="width: 50px; height: 35px;"> >> </button>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+<!--
   <div class="cen_container">
     <h1> GOES West Full Diskx </h1>
     <a href="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/1808x1808.jpg">
       <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg" style="width:66.0%;">
     </a>
+    <br>
+    <button class="button" style="width: 50px; height: 35px;"> << </button>
+    <button class="button" style="width: 50px; height: 35px;"> >> </button>
   </div>
+-->
 
 <!-- this works
   <img src="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg"
@@ -398,7 +474,7 @@ li.dropdown {
     <!-- ============ Snippet CHIRPS-GEFS  Prediction ============ -->
 
     <div class="cen_container">
-      <h1 href="https://snippets.chc.ucsb.edu/">Snippet: CHIRPS</h1>
+      <h1 href="https://snippets.chc.ucsb.edu/">Snippet: CHIRPS (DISABLED for Testing, see xEwxMapG5() )</h1>
       <div id="snippet-m08f05L58"></div>
 
       <!-- EWX Snippet Map -->
@@ -408,7 +484,7 @@ li.dropdown {
 
 
       <script type="text/javascript">
-        new EwxMapG5({
+        new xEwxMapG5({
           ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
           id: 'snippet-m08f05L58',
           dataset: 'CHIRPS',
@@ -421,10 +497,10 @@ li.dropdown {
           showYearControl: true,
           units: 'mm',
           statistic: 'data',
-          width: 850,
-          height: 790,
-          zoom: 6.5,
-          center: [0.1, 38.0],
+          width: 1050,
+          height: 550,
+          zoom: 4.5,
+          center: [37.5, -96.358764],
         });
       </script>
     </div>
@@ -432,7 +508,7 @@ li.dropdown {
       <script type="text/javascript">
  /*
           new EwxMapG5({
-          ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx', https://ewx3.chc.ucsb.edu/ewx
+          ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
           id: 'snippet-m08f05L58',
           dataset: 'CHIRPS',
           subDataset: 'chirps',
@@ -733,13 +809,13 @@ li.dropdown {
     <br>
     <br>
 
-    <!-- ============= 200 mb Wind Speed (current) ============= -->
+    <!-- ============= 200 mb Wind Speed (current) =============
     <a  href="http://wxmaps.org/pix/hemi.jet.html">
       <img src="http://wxmaps.org/pix/hemi5.00hr.png">
     </a>
     <br>
     <br>
-
+-->
 
 
   </body>
