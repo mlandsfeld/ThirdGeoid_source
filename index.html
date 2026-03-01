@@ -228,6 +228,19 @@ li.dropdown {
   width: 66.6%;
   height: 66.6%;
 }
+
+.image-container {
+  display: flex; /* Enables flexbox layout for children */
+  justify-content: center; /* Centers the images horizontally (optional) */
+  gap: 10px; /* Adds space between images (optional) */
+}
+
+.image-container img {
+  width: 50%; /* Each image takes up half the container width */
+  max-width: 100%; /* Ensures images are responsive */
+  height: auto; /* Maintains aspect ratio */
+}
+
 </style>
 
 </head>
@@ -361,6 +374,13 @@ li.dropdown {
   <!-- ================== NOAA National Forecasts =================  -->
 
   <h1>  Surface Analysis Today & Tomorrow </h1>
+
+  <div class="image-container">
+    <img src="https://www.wpc.ncep.noaa.gov/basicwx/92fndfd.gif" alt="Surface Analysis Today">
+    <img src="https://www.wpc.ncep.noaa.gov/basicwx/96fndfd.gif" alt="Surface Analysis Tomorrow">
+  </div>
+
+<!--
   <table>
     <td>
       <a href="https://www.nws.noaa.gov/outlook_tab.php">
@@ -376,7 +396,7 @@ li.dropdown {
   <br>
   <br>
 
-
+-->
 
   <!-- ============= High Temperature Today & Tomorrow ============= -->
 
