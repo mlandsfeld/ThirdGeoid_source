@@ -210,7 +210,7 @@ li.dropdown {
 
 
 <style>
-  .cen_container {
+  .center-container {
     text-align: center; /* Centers all inline elements inside the div */
     width: 100%;
   }
@@ -299,7 +299,7 @@ li.dropdown {
     }
   </script>
 
-  <div class="cen_container">
+  <div class="center-container">
     <div class="image-container">
       <h2>GeoStationary satllites</h2>
       <img id="geosta-image" class="target-image" src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg"
@@ -314,7 +314,7 @@ li.dropdown {
 
   <br><br>
 <!--
-  <div class="cen_container">
+  <div class="center-container">
     <h1> GOES West Full Diskx </h1>
     <a href="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/1808x1808.jpg">
       <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg" style="width:66.0%;">
@@ -335,7 +335,7 @@ li.dropdown {
 
   <!-- ============= Sun and Moon Positions & Analemma (current) ============= -->
 
-  <div class="cen_container">
+  <div class="center-container">
     <h1> Earth and Moon Positions </h1>
 
     <a href="http://timeanddate.com/worldclock/sunearth.html">
@@ -348,7 +348,7 @@ li.dropdown {
 
 
   <!-- ============ NexSat Conus, SSEC =========== -->
-  <div class="cen_container">
+  <div class="center-container">
 
     <h1> SSEC US Composite </h1>
 
@@ -379,34 +379,33 @@ li.dropdown {
     <h1> NOAA National Forecasts </h1>
   </a>
 
-  <div class="cen_container">
+  <div class="center-container">
     <h2> Surface Analysis Today & Tomorrow </h2>
 
-  <div class="sidebyside-container">
+    <div class="sidebyside-container">
+      <img src="https://www.wpc.ncep.noaa.gov/basicwx/92fndfd.gif" alt="Surface Analysis Today">
+      <img src="https://www.wpc.ncep.noaa.gov/basicwx/96fndfd.gif" alt="Surface Analysis Tomorrow">
+    </div>
 
-    <img src="https://www.wpc.ncep.noaa.gov/basicwx/92fndfd.gif" alt="Surface Analysis Today">
-    <img src="https://www.wpc.ncep.noaa.gov/basicwx/96fndfd.gif" alt="Surface Analysis Tomorrow">
+    <!-- ============= High Temperature Today & Tomorrow ============= -->
+
+    <h2> High Temperature Today & Tomorrow  </h2>
+
+    <div class="sidebyside-container">
+      <img src="https://graphical.weather.gov/images/conus/MaxT1_conus.png" alt="High Temperature Today">
+      <img src="https://graphical.weather.gov/images/conus/MaxT2_conus.png" alt="High Temperature Tomorrow">
+    </div>
+
+    <!-- ============ Precipitation Probability Today & Tomorrow  ============ -->
+
+    <h2> Precipitation Probability Today & Tomorrow </h2>
+
+    <div class="sidebyside-container">
+      <img src="https://graphical.weather.gov/images/conus/PoP121_conus.png" alt="Precipitation Probability Today">
+      <img src="https://graphical.weather.gov/images/conus/PoP123_conus.png" alt="Precipitation Probability Tomorrow">
+    </div>
+
   </div>
-
-  <!-- ============= High Temperature Today & Tomorrow ============= -->
-
-  <h2> High Temperature Today & Tomorrow  </h2>
-
-  <div class="sidebyside-container">
-    <img src="https://graphical.weather.gov/images/conus/MaxT1_conus.png" alt="High Temperature Today">
-    <img src="https://graphical.weather.gov/images/conus/MaxT2_conus.png" alt="High Temperature Tomorrow">
-  </div>
-
-  <!-- ============ Precipitation Probability Today & Tomorrow  ============ -->
-
-  <h2> Precipitation Probability Today & Tomorrow </h2>
-
-  <div class="sidebyside-container">
-    <img src="https://graphical.weather.gov/images/conus/PoP121_conus.png" alt="Precipitation Probability Today">
-    <img src="https://graphical.weather.gov/images/conus/PoP123_conus.png" alt="Precipitation Probability Tomorrow">
-  </div>
-
-</div>
 
 <!--
   <table>
@@ -425,46 +424,6 @@ li.dropdown {
   <br>
 
 -->
-
-  <!-- ============= High Temperature Today & Tomorrow ============= -->
-
-  <h1> High Temperature Today & Tomorrow  </h1>
-  <div class="row_flex">
-    <div class="column1">
-      <a href="https://graphical.weather.gov/sectors/conus.php">
-        <img src="https://graphical.weather.gov/images/conus/MaxT1_conus.png"  width="95%" height="500">
-      </a>
-    </div>
-    <div class="column2">
-      <a href="https://graphical.weather.gov/sectors/conus.php">
-        <img src="https://graphical.weather.gov/images/conus/MaxT2_conus.png"  width="95%" height="500">
-      </a>
-    </div>
-  </div>
-  <br>
-  <br>
-
-  <!-- ============ Precipitation Probability Today & Tomorrow  ============ -->
-
-  <h1> Precipitation Probability Today & Tomorrow </h1>
-  <div class="row_flex">
-    <div class="column2">
-      <!-- ============= Precipitation Probability 12 hour ============= -->
-      <a href="https://graphical.weather.gov/sectors/conus.php">
-        <img src="https://graphical.weather.gov/images/conus/PoP121_conus.png">
-      </a>
-    </div>
-    <div class="column2">
-      <!-- ============= Precipitation Probability 12 hour in 24 hours============= -->
-      <a href="https://graphical.weather.gov/sectors/conus.php">
-        <img src="https://graphical.weather.gov/images/conus/PoP123_conus.png" >
-      </a>
-    </div>
-  </div>
-  <br>
-  <br>
-
-
 
 
 
@@ -596,7 +555,7 @@ li.dropdown {
 
     <!-- ============ Snippet CHIRPS-GEFS  Prediction ============ -->
 
-    <div class="cen_container">
+    <div class="center-container">
       <h1 href="https://snippets.chc.ucsb.edu/">Snippet: CHIRPS (DISABLED for Testing, see xEwxMapG5() )</h1>
       <div id="snippet-m08f05L58"></div>
 
