@@ -571,7 +571,7 @@ li.dropdown {
     <!-- ============ Snippet CHIRPS-GEFS  Prediction ============ -->
 
     <div class="center-container">
-      <h1 href="https://snippets.chc.ucsb.edu/">Snippet: CHIRPS (DISABLED for Testing, see xEwxMapG5() )</h1>
+      <h1 href="https://snippets.chc.ucsb.edu/">Snippet: CHIRPS Monthly Precipitation Accumulation</h1>
       <div id="snippet-m08f05L58"></div>
 
       <!-- EWX Snippet Map -->
@@ -581,12 +581,12 @@ li.dropdown {
 
 
       <script type="text/javascript">
-        new xEwxMapG5({
+        new EwxMapG5({
           ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
           id: 'snippet-m08f05L58',
           dataset: 'CHIRPS',
           subDataset: 'chirps',
-          boundaries: ['gaul_2008_0', 'gaul_2008_1', 'gaul_2008_2', 'kenya_wards'],
+          boundaries: ['gaul_2008_0', 'gaul_2008_1', 'gaul_2008_2'], //, 'kenya_wards'
           region: 'global',
           periodicity: '1-month',
           period: 'latest',
@@ -601,10 +601,9 @@ li.dropdown {
         });
       </script>
     </div>
-
+<!--
       <script type="text/javascript">
- /*
-          new EwxMapG5({
+          new xEwxMapG5({
           ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
           id: 'snippet-m08f05L58',
           dataset: 'CHIRPS',
@@ -622,8 +621,8 @@ li.dropdown {
           zoom: 3.5,
           center: [33.3, -110.0],
       });
-*/
 
+-->
       </script>
       <br>
       <br>
