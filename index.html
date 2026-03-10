@@ -480,7 +480,7 @@ li.dropdown {
   </a>
   <div class="row_flex">
     <div class="column2" style="text-align: center;">
-      <h2>Santa Ynez Mt (currently stuck on 2026/02/18)</h2>
+      <h2>Santa Ynez Mt (currently frozen on 2026/02/18)</h2>
       <a href="https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg">
         <img src="https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg" style="width:100%">
       </a>
@@ -572,21 +572,22 @@ li.dropdown {
 
     <div class="center-container">
       <h1 href="https://snippets.chc.ucsb.edu/">Snippet: CHIRPS Monthly Precipitation Accumulation</h1>
-      <div id="snippet-m08f05L58"></div>
 
       <!-- EWX Snippet Map -->
-      <script
-        src="./ewxmapG5.js">
-      </script>
+      <script type="text/javascript" src="./snippet.js"></script>
 
+      <div id="ewx-map-h4vbt36xss"></div>
 
       <script type="text/javascript">
-        new EwxMapG5({
+        new Snippet({
           ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-          id: 'snippet-m08f05L58',
+          id: 'ewx-map-h4vbt36xss',
           dataset: 'CHIRPS',
           subDataset: 'chirps',
-          boundaries: ['gaul_2008_0', 'gaul_2008_1', 'gaul_2008_2'], //, 'kenya_wards'
+          showGaul20080: true,
+          showGaul20081: true,
+          showGaul20082: false,
+          showKenyaWards: false,
           region: 'global',
           periodicity: '1-month',
           period: 'latest',
@@ -594,14 +595,46 @@ li.dropdown {
           showYearControl: true,
           units: 'mm',
           statistic: 'data',
-          width: 1050,
-          height: 550,
-          zoom: 4.5,
-          center: [37.5, -96.358764],
+          width: 850,
+          height: 790,
+          zoom: 6.5,
+          center: [0.1, 38.0],
         });
+        // boundaries: ['gaul_2008_0', 'gaul_2008_1', 'gaul_2008_2', 'kenya_wards'],
       </script>
+
     </div>
 <!--
+
+boundaries: ['gaul_2008_0', 'gaul_2008_1', 'gaul_2008_2'], //, 'kenya_wards'
+
+<div id="snippet-m08f05L58"></div>
+
+<script type="text/javascript">
+  new Snippet({
+    ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+    id: 'snippet-m08f05L58',
+    dataset: 'CHIRPS',
+    subDataset: 'chirps',
+    showGaul20080: true,
+    showGaul20081: true,
+    showGaul20082: true,
+    showKenyaWards: false,
+    region: 'global',
+    periodicity: '1-month',
+    period: 'latest',
+    showDekadControl: true,
+    showYearControl: true,
+    units: 'mm',
+    statistic: 'data',
+    width: 1050,
+    height: 550,
+    zoom: 4.5,
+    center: [37.5, -96.358764],
+  });
+</script>
+
+
       <script type="text/javascript">
           new xEwxMapG5({
           ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
@@ -659,33 +692,22 @@ li.dropdown {
 
     <h3> Meteograms, next 4 days, 430-D Camino del Remedio (-119.7788, 34.4469)</h3>
 
-    <div class="row_flex">
-      <div class="column2">
-        <a href="https://forecast.weather.gov/MapClick.php?lat=34.4469&lon=-119.7788&unit=0&lg=english&FcstType=graphical">
-        <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.4469&lon=-119.7788&wfo=LOX&zcode=CAZ039&gset=15&gdiff=3&unit=0&tinfo=PY8&ahour=0&pcmd=10001011100000100000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6 " width="550" height="487">
-        </a>
-     </div>
-      <div class="column2">
-        <a href="https://forecast.weather.gov/MapClick.php?lat=34.4469&lon=-119.7788&unit=0&lg=english&FcstType=graphical">
-        <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.4469&lon=-119.7788&wfo=LOX&zcode=CAZ039&gset=15&gdiff=3&unit=0&tinfo=PY8&ahour=48&pcmd=10001011100000100000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6" width="550" height="487">
-        </a>
-      </div>
-    </div>
+    <a href="https://forecast.weather.gov/MapClick.php?lat=34.4469&lon=-119.7788&unit=0&lg=english&FcstType=graphical">
+    <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.4469&lon=-119.7788&wfo=LOX&zcode=CAZ039&gset=15&gdiff=3&unit=0&tinfo=PY8&ahour=0&pcmd=10001011100000100000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6 " width="550" height="487">
+    </a>
+    <a href="https://forecast.weather.gov/MapClick.php?lat=34.4469&lon=-119.7788&unit=0&lg=english&FcstType=graphical">
+    <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.4469&lon=-119.7788&wfo=LOX&zcode=CAZ039&gset=15&gdiff=3&unit=0&tinfo=PY8&ahour=48&pcmd=10001011100000100000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6" width="550" height="487">
+    </a>
 
    <!-- meteogram for Mojave Wash -->
    <h3> Meteograms, next 4 days, Mojave Wash (-116.4846, 34.9931)</h3>
-   <div class="row_flex">
-      <div class="column2">
-        <a href="https://forecast.weather.gov/MapClick.php?lat=34.9931&lon=-116.4846&smap=1&unit=0&lg=en&FcstType=graphical">
-        <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.9931&lon=-116.4846&wfo=VEF&zcode=CAZ522&gset=18&gdiff=5&unit=0&tinfo=PY8&ahour=0&pcmd=10001100100000000000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6j" width="550" height="487">
-        </a>
-     </div>
-      <div class="column2">
-        <a href="https://forecast.weather.gov/MapClick.php?lat=34.9931&lon=-116.4846&smap=1&unit=0&lg=en&FcstType=graphical">
-        <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.9931&lon=-116.4846&wfo=VEF&zcode=CAZ522&gset=18&gdiff=5&unit=0&tinfo=PY8&ahour=48&pcmd=10001100100000000000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6" width="550" height="487">
-        </a>
-      </div>
-    </div>
+
+    <a href="https://forecast.weather.gov/MapClick.php?lat=34.9931&lon=-116.4846&smap=1&unit=0&lg=en&FcstType=graphical">
+    <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.9931&lon=-116.4846&wfo=VEF&zcode=CAZ522&gset=18&gdiff=5&unit=0&tinfo=PY8&ahour=0&pcmd=10001100100000000000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6j" width="550" height="487">
+    </a>
+    <a href="https://forecast.weather.gov/MapClick.php?lat=34.9931&lon=-116.4846&smap=1&unit=0&lg=en&FcstType=graphical">
+    <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.9931&lon=-116.4846&wfo=VEF&zcode=CAZ522&gset=18&gdiff=5&unit=0&tinfo=PY8&ahour=48&pcmd=10001100100000000000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6" width="550" height="487">
+    </a>
 
 
 
