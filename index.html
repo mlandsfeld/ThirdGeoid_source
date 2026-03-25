@@ -571,38 +571,64 @@ li.dropdown {
     <!-- ============ Snippet CHIRPS-GEFS  Prediction ============ -->
 
     <div class="center-container">
-      <h1 href="https://snippets.chc.ucsb.edu/">Snippet: CHIRPS Monthly Precipitation Accumulation</h1>
+      <h1 href="https://snippets.chc.ucsb.edu/">Snippet: CHIRPS-GEFS 10 day Precipitation Forecast</h1>
 
       <!-- EWX Snippet Map -->
       <script type="text/javascript" src="./snippet.js"></script>
 
-      <div id="ewx-map-h4vbt36xss"></div>
+      <div id="mySnippet"></div>
 
+
+  <script type="text/javascript">
+    new Snippet({
+      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+      id: 'mySnippet',
+      dataset: 'CHIRPSGEFS',
+      subDataset: 'chirps_gefs',
+      region: 'global',
+      periodicity: '1-day',
+      period: 'latest',
+      forecastPeriod: '10day',
+      showDekadControl: true,
+      showYearControl: true,
+      units: 'mm',
+      statistic: 'data',
+      width: 1000,
+      height: 500,
+      zoom: 4.4,
+      center: [38, -95],
+      showGaul20080: true,
+      showGaul20081: true,
+      showGaul20082: false,
+      showKenyaWards: false,
+    });
+  </script>
+<!--
       <script type="text/javascript">
         new Snippet({
           ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-          id: 'ewx-map-h4vbt36xss',
-          dataset: 'CHIRPS',
-          subDataset: 'chirps',
+          id: 'mySnippet',
+          dataset: 'CHIRPSGEFS',
+          subDataset: 'chirps_gefs',
           showGaul20080: true,
           showGaul20081: true,
           showGaul20082: false,
           showKenyaWards: false,
           region: 'global',
-          periodicity: '1-month',
+          periodicity: '1-day',
           period: 'latest',
           showDekadControl: true,
           showYearControl: true,
           units: 'mm',
           statistic: 'data',
-          width: 850,
-          height: 790,
-          zoom: 6.5,
-          center: [0.1, 38.0],
+          width: 1000,
+          height: 500,
+          zoom: 4.4,
+          center: [38, -95],
         });
         // boundaries: ['gaul_2008_0', 'gaul_2008_1', 'gaul_2008_2', 'kenya_wards'],
       </script>
-
+-->
     </div>
 <!--
 
