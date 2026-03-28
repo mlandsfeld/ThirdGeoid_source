@@ -403,6 +403,12 @@ var Snippet = function(configuration) {
       this.wards1Layer = wards1Layer;
     };
 
+    if (this.config.scrollWheelZoom == false) {
+      console.log('disabling scrollWheelZoom');
+      map.scrollWheelZoom.disable();
+    };
+
+
     var _this = this;
 
     map.on('click', function(evt) {  //---------- MAP ON CLICK ---------//
@@ -413,6 +419,18 @@ var Snippet = function(configuration) {
         _this.mouseWasMovingOverControl = false;
         return;
       }
+
+      console.log('map.scrollWheelZoom: ',map.scrollWheelZoom);
+      if (map.scrollWheelZoom == false) {
+        map.scrollWheelZoom.enable();
+        //if (map.scrollWheelZoom.enabled()) {
+        //  map.scrollWheelZoom.disable();
+        //  console.log('Map scrollWheelZoom disabled');
+        //} else {
+        //  map.scrollWheelZoom.enable();
+        //  console.log('Map scrollWheelZoom enabled');
+        //};
+      };
 
       var bounds = map.getBounds();
       var urLon = bounds._northEast.lng;
