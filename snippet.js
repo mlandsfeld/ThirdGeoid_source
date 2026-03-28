@@ -422,6 +422,7 @@ var Snippet = function(configuration) {
 
       console.log('map.scrollWheelZoom: ',map.scrollWheelZoom);
       if (map.scrollWheelZoom == false) {
+        console.log('map.scrollWheelZoom == false');
         map.scrollWheelZoom.enable();
         //if (map.scrollWheelZoom.enabled()) {
         //  map.scrollWheelZoom.disable();
