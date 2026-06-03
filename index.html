@@ -245,6 +245,23 @@ li.dropdown {
   height: auto; /* Maintains aspect ratio */
 }
 
+
+
+.image-center-container {
+  display: inline-grid;
+  place-items: center; /* Centers children horizontally and vertically */
+}
+
+.image-center-container img,
+.image-center-container .centered-text {
+  grid-area: 1 / 1; /* Forces both elements into the exact same space */
+}
+
+.centered-text {
+  color: white; /* Style your text to stand out */
+  text-align: center;
+}
+
 </style>
 
 </head>
@@ -408,34 +425,55 @@ li.dropdown {
     <!-- ============ Precipitation Probability Today & Tomorrow  ============ -->
 
     <h2> Precipitation Probability Today & Tomorrow </h2>
-
-    <div class="sidebyside-container">
-      <img src="https://graphical.weather.gov/images/conus/PoP121_conus.png" alt="Precipitation Probability Today">
-      <img src="https://graphical.weather.gov/images/conus/PoP123_conus.png" alt="Precipitation Probability Tomorrow">
+    <div class="row_flex">
+      <div class="column2">
+        <a href="https://graphical.weather.gov/">
+          <img src="https://graphical.weather.gov/images/conus/PoP121_conus.png" style="width:100%">
+        </a>
+      </div>
+      <div class="column2">
+        <a href="https://graphical.weather.gov/">
+          <img src="https://graphical.weather.gov/images/conus/PoP123_conus.png" style="width:100%">
+        </a>
+      </div>
     </div>
-    <br>
+
 
     <!-- ============= High Temperature Today & Tomorrow ============= -->
 
     <h2> High Temperature Today & Tomorrow  </h2>
 
-    <div class="sidebyside-container">
-      <img src="https://graphical.weather.gov/images/conus/MaxT1_conus.png" alt="High Temperature Today">
-      <img src="https://graphical.weather.gov/images/conus/MaxT2_conus.png" alt="High Temperature Tomorrow">
+    <div class="row_flex">
+      <div class="column2">
+        <a href="https://graphical.weather.gov/">
+          <img src="https://graphical.weather.gov/images/conus/MaxT1_conus.png" style="width:100%">
+        </a>
+      </div>
+      <div class="column2">
+        <a href="https://graphical.weather.gov/">
+          <img src="https://graphical.weather.gov/images/conus/MaxT2_conus.png" style="width:100%">
+        </a>
+      </div>
     </div>
-    <br>
+
 
 
     <!-- ============= Surface Analysis Today & Tomorrow ============= -->
 
     <h2> Surface Analysis Today & Tomorrow </h2>
 
-    <div class="sidebyside-container">
-      <img src="https://www.wpc.ncep.noaa.gov/basicwx/92fndfd.gif" alt="Surface Analysis Today">
-      <img src="https://www.wpc.ncep.noaa.gov/basicwx/96fndfd.gif" alt="Surface Analysis Tomorrow">
+    <div class="row_flex">
+      <div class="column2">
+        <a href="https://graphical.weather.gov/">
+          <img src="https://www.wpc.ncep.noaa.gov/basicwx/92fndfd.gif" style="width:100%">
+        </a>
+      </div>
+      <div class="column2">
+        <a href="https://graphical.weather.gov/">
+          <img src="https://www.wpc.ncep.noaa.gov/basicwx/96fndfd.gif" style="width:100%">
+        </a>
+      </div>
     </div>
-    <br>
-
 
 
   </div>
@@ -475,21 +513,16 @@ li.dropdown {
    -->
 
 
-  <!-- ============ Santa Barbara Webcams ============
+  <!-- ============ Santa Barbara Webcams ============  -->
 
-      El Sueno traffic cam
-      https://cwwp2.dot.ca.gov/data/d5/cctv/image/us101elsuenord/us101elsuenord.jpg
-  -->
-
-  <a href="http://hpwren.ucsd.edu/cameras/S/SD/syp.html">
-    <h1 href="http://hpwren.ucsd.edu/cameras/S/SD/syp.html"> Santa Barbara webcams </h1>
+  <a href="https://www.santabarbara.com/community/live-web-cams">
+    <h1> Santa Barbara webcams </h1>
   </a>
   <div class="row_flex">
     <div class="column2" style="text-align: center;">
-      <h2>Santa Ynez Mt (currently frozen on 2026/02/18)</h2>
-      <a href="https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg">
-        <img src="https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg" style="width:100%">
-      </a>
+      <h2>Santa Ynez Mt</h2>
+      <a href="https://cdn.hpwren.ucsd.edu/RT/syp-axis.jpg">
+        <img src="https://cdn.hpwren.ucsd.edu/RT/syp-axis.jpg" style="width:100%">
     </div>
     <div class="column2" style="text-align: center;">
       <h2>UCSB Ellison Hall</h2>
@@ -500,6 +533,23 @@ li.dropdown {
   </div>
   <br>
   <br>
+
+
+  <!-- El Sueno traffic cam -->
+
+  <div class="image-center-container">
+    <h2>El Sueno & The 101 Traffic Cam</h2>
+    <a href="https://cwwp2.dot.ca.gov/vm/loc/d5/us101elsuenord.htm">
+      <img src="https://cwwp2.dot.ca.gov/data/d5/cctv/image/us101elsuenord/us101elsuenord.jpg" style="width:150%">
+    </a>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <!-- for view of SB when back up img src="https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg" style="width:100%" -->
 
 
     <!-- ============   WX Discusion, Oxnard ============ -->
@@ -724,59 +774,45 @@ boundaries: ['gaul_2008_0', 'gaul_2008_1', 'gaul_2008_2'], //, 'kenya_wards'
 
     <!-- ============ Meteograms   ============ -->
 
-    <h3> Meteograms, next 4 days, 430-D Camino del Remedio (-119.7788, 34.4469)</h3>
 
-    <div class="center-container">
-
-      <div class="sidebyside-container">
-        <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.4469&lon=-119.7788&wfo=LOX&zcode=CAZ039&gset=15&gdiff=3&unit=0&tinfo=PY8&ahour=0&pcmd=10001011100000100000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6">
-        <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.4469&lon=-119.7788&wfo=LOX&zcode=CAZ039&gset=15&gdiff=3&unit=0&tinfo=PY8&ahour=48&pcmd=10001011100000100000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6">
-      </div>
-    </div>
-
-    <div class="center-container">
-
-      <div class="sidebyside-container">
-        <a href="https://forecast.weather.gov/MapClick.php?lat=34.4469&lon=-119.7788&unit=0&lg=english&FcstType=graphical">
-        <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.4469&lon=-119.7788&wfo=LOX&zcode=CAZ039&gset=15&gdiff=3&unit=0&tinfo=PY8&ahour=0&pcmd=10001011100000100000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6"
-          width="135%">
-        </a>
-        <a href="https://forecast.weather.gov/MapClick.php?lat=34.4469&lon=-119.7788&unit=0&lg=english&FcstType=graphical">
-        <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.4469&lon=-119.7788&wfo=LOX&zcode=CAZ039&gset=15&gdiff=3&unit=0&tinfo=PY8&ahour=48&pcmd=10001011100000100000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6"
-          width="135%">
-        </a>
-      </div>
-    </div>
-
-   <!-- meteogram for Mojave Wash -->
-   <h3> Meteograms, next 4 days, Mojave Wash (-116.4846, 34.9931)</h3>
-
-    <a href="https://forecast.weather.gov/MapClick.php?lat=34.9931&lon=-116.4846&smap=1&unit=0&lg=en&FcstType=graphical">
-    <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.9931&lon=-116.4846&wfo=VEF&zcode=CAZ522&gset=18&gdiff=5&unit=0&tinfo=PY8&ahour=0&pcmd=10001100100000000000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6j" width="550" height="487">
+    <a href="https://www.weather.gov/">
+      <h2> Meteograms, next 4 days, 430-D Camino del Remedio </h2>
     </a>
-    <a href="https://forecast.weather.gov/MapClick.php?lat=34.9931&lon=-116.4846&smap=1&unit=0&lg=en&FcstType=graphical">
-    <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.9931&lon=-116.4846&wfo=VEF&zcode=CAZ522&gset=18&gdiff=5&unit=0&tinfo=PY8&ahour=48&pcmd=10001100100000000000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6" width="550" height="487">
-    </a>
-
-
-
-<!--
     <div class="row_flex">
-      <div class="column2">
-        <a href="https://forecast.weather.gov/MapClick.php?lat=36.4607&lon=-116.8440&smap=1&unit=0&lg=en&FcstType=graphical">
-        <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=36.4607&lon=-116.844&wfo=VEF&zcode=CAZ522&gset=18&gdiff=5&unit=0&tinfo=PY8&ahour=0&pcmd=10001100100000000000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6j" width="550" height="487">
-        </a>
-     </div>
-      <div class="column2">
-        <a href="https://forecast.weather.gov/MapClick.php?lat=36.4607&lon=-116.8440&smap=1&unit=0&lg=en&FcstType=graphical">
-        <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=36.4607&lon=-116.844&wfo=VEF&zcode=CAZ522&gset=18&gdiff=5&unit=0&tinfo=PY8&ahour=48&pcmd=10001100100000000000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6" width="550" height="487">
+      <div class="column2" style="text-align: center;">
+        <a href="https://forecast.weather.gov/MapClick.php?lat=34.4469&lon=-119.7788&smap=1&unit=0&lg=en&FcstType=graphical">
+          <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.4469&lon=-119.7788&wfo=LOX&zcode=CAZ039&gset=15&gdiff=3&unit=0&tinfo=PY8&ahour=0&pcmd=10001011100000100000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6" style="width:100%">
+      </div>
+      <div class="column2" style="text-align: center;">
+        <a href="https://forecast.weather.gov/MapClick.php?lat=34.4469&lon=-119.7788&smap=1&unit=0&lg=en&FcstType=graphical">
+          <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.4469&lon=-119.7788&wfo=LOX&zcode=CAZ039&gset=15&gdiff=3&unit=0&tinfo=PY8&ahour=48&pcmd=10001011100000100000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6" style="width:100%">
         </a>
       </div>
     </div>
-    <h1> Meteograms, next 4 days, Furnace Creek (-119.7975, 34.5457)</h1>
     <br>
     <br>
--->
+
+
+    <a href="https://www.weather.gov/">
+      <h2> Meteograms, next 4 days, Mojave Wash (-116.48, 34.99) </h2>
+    </a>
+    <div class="row_flex">
+      <div class="column2" style="text-align: center;">
+        <a href="https://forecast.weather.gov/MapClick.php?lat=34.9931&lon=-116.4846&smap=1&unit=0&lg=en&FcstType=graphical">
+          <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.9931&lon=-116.4846&wfo=VEF&zcode=CAZ522&gset=18&gdiff=5&unit=0&tinfo=PY8&ahour=0&pcmd=10001100100000000000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6" style="width:98%">
+      </div>
+      <div class="column2" style="text-align: center;">
+        <a href="https://forecast.weather.gov/MapClick.php?lat=34.9931&lon=-116.4846&smap=1&unit=0&lg=en&FcstType=graphical">
+          <img src="https://forecast.weather.gov/meteograms/Plotter.php?lat=34.9931&lon=-116.4846&wfo=VEF&zcode=CAZ522&gset=18&gdiff=5&unit=0&tinfo=PY8&ahour=48&pcmd=10001100100000000000000000000000000000000000000000000000000&lg=en&indu=1!1!1!&dd=&bw=&hrspan=48&pqpfhr=6&psnwhr=6" style="width:98%">
+        </a>
+      </div>
+    </div>
+    <br>
+    <br>
+
+
+
+
 
     <!-- ============= Earthquake Map NOAA NWS ============= -->
     <br>
@@ -844,18 +880,37 @@ boundaries: ['gaul_2008_0', 'gaul_2008_1', 'gaul_2008_2'], //, 'kenya_wards'
     <!-- ============ Current Traffic, Google  =========== -->
     <h1> Current Traffic, Google </h1>
 
+    <script>
+
+
+    console.log('in initMap script: ')
+
+    function initMap() {
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 13,
+        center: { lat: 34.04924594193164, lng: -118.24104309082031 },
+      });
+      const trafficLayer = new google.maps.TrafficLayer();
+
+      trafficLayer.setMap(map);
+    }
+    window.initMap = initMap;
+
+    </script>
+
     <iframe
       width="600"
       height="600"
       frameborder="0" style="border:0"
       referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.google.com/maps/embed/v1/MAP_MODE?key=AIzaSyAc-QguMTjI9sijdC6G09KRoyREDsTVHFk
+      src="https://www.google.com/maps/embed/v1/MAP_MODE?key=AIzaSyAc-QguMTjI9sijdC6G09KRoyREDsTVHFk"
       &center=-33.8569,151.2152
       &zoom=18
-      &maptype=satellite"
+      &maptype=satellite
       allowfullscreen>
     </iframe>
 
+    <h1> previous version </h1>
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d266141.8834381929!2d-119.99419431373767!3d34.42872994046375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e96aad6cd666f9%3A0x23116fdf4d27616e!2s430%20Camino%20del%20Remedio%2C%20Santa%20Barbara%2C%20CA%2093110!5e1!3m2!1sen!2sus!4v1768357446648!5m2!1sen!2sus"
        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
