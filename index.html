@@ -465,7 +465,22 @@ li.dropdown {
 
 
   <!-- ============ Willey Weather Forecast ============ -->
-  <div style="width:50.0%; margin-left:auto; margin-right:auto;">
+
+  <div style="width: 50%; margin-left:auto; margin-right:auto;">
+    <iframe style="display: block;"
+      src="https://cdnres.willyweather.com/widget/loadView.html?id=160183"
+      width="500px" height="300" frameborder="0" scrolling="no">
+    </iframe>
+    <a
+      style="height: 20px;display: block;margin: -20px 0 0 0;z-index: 1;text-indent: -9999em;
+      position: relative"
+      href="https://www.willyweather.com/ca/santa-barbara-county/goleta.html" rel="nofollow">
+      Goleta Forecast
+    </a>
+  </div>
+
+ <!--
+   <div style="width:50.0%; margin-left:auto; margin-right:auto;">
     <h1> Willy Weather Forecast </h1>
     <iframe style="display: block;" src="http://cdnres.willyweather.com/widget/loadView.html?id=53467" width="683" height="92"
       frameborder="0" scrolling="no">
@@ -473,6 +488,7 @@ li.dropdown {
     <a style="width: 20px;position: relative;height: 92px;text-indent: -9999em;float: right;z-index: 1;
       margin: -92px 0 0 0" href="http://www.willyweather.com/ca/santa-barbara-county/goleta.html">Goleta weather</a>
   </div>
+-->
   <br>
   <br>
 
@@ -578,29 +594,30 @@ li.dropdown {
    -->
 
 
-  <!-- ============ Santa Barbara Webcams ============  -->
+    <!-- ============ Santa Barbara Webcams ============  -->
 
-  <a href="https://www.santabarbara.com/community/live-web-cams">
-    <h1> Santa Barbara webcams </h1>
-  </a>
-  <div class="row_flex">
-    <div class="column2" style="text-align: center;">
-      <h2>Santa Ynez Mt</h2>
-      <a href="https://www.rntl.net/santa-barbara-county-fire-webcams/">
-        <img src="https://cameras.alertcalifornia.org/public-camera-data/Axis-SantaYnezPeakWest2/latest-frame.jpg" style="width:100%">
-      </a>
+    <a href="https://www.santabarbara.com/community/live-web-cams">
+      <h1> Santa Barbara webcams </h1>
+    </a>
+    <div class="row_flex">
+      <div class="column2" style="text-align: center;">
+        <h2>Santa Ynez Mt</h2>
+        <a href="https://www.rntl.net/santa-barbara-county-fire-webcams/">
+          <img src="https://cameras.alertcalifornia.org/public-camera-data/Axis-SantaYnezPeakWest2/latest-frame.jpg" style="width:100%">
+        </a>
+      </div>
+      <div class="column2" style="text-align: center;">
+        <h2>Santa Barbara</h2>
+        <a href="https://www.rntl.net/santa-barbara-county-fire-webcams">
+          <img src="https://cameras.alertcalifornia.org/public-camera-data/Axis-Gibraltar2/latest-frame.jpg" style="width:100%">
+        </a>
+      </div>
     </div>
-    <div class="column2" style="text-align: center;">
-      <h2>Santa Barbara</h2>
-      <a href="https://www.rntl.net/santa-barbara-county-fire-webcams">
-        <img src="https://cameras.alertcalifornia.org/public-camera-data/Axis-Gibraltar2/latest-frame.jpg" style="width:100%">
-      </a>
-    </div>
-  </div>
-  <br>
-  <br>
+    <br>
+    <br>
 
 
+    <!-- Cachuma & Ellison Hall cams -->
 
     <div class="row_flex">
       <div class="column2" style="text-align: center;">
@@ -620,18 +637,25 @@ li.dropdown {
     <br>
 
 
+    <!-- El Sueno & Patterson traffic cams -->
 
-  <!-- El Sueno traffic cam -->
-
-  <div class="center-container">
-
-    <h1> El Sueno & the 101 </h1>
-
-    <a href="https://cwwp2.dot.ca.gov/vm/loc/d5/us101elsuenord.htm">
-      <img src="https://cwwp2.dot.ca.gov/data/d5/cctv/image/us101elsuenord/us101elsuenord.jpg" style="width:40%">
-    </a>
+    <div class="row_flex">
+      <div class="column2" style="text-align: center;">
+        <h2>El Sueno & 101</h2>
+        <a href="https://cwwp2.dot.ca.gov/vm/loc/d5/us101elsuenord.htm">
+          <img src="https://cwwp2.dot.ca.gov/data/d5/cctv/image/us101elsuenord/us101elsuenord.jpg" style="width:100%">
+        </a>
+      </div>
+      <div class="column2" style="text-align: center;">
+        <h2>Patterson at 101</h2>
+        <a href="https://cwwp2.dot.ca.gov/vm/loc/d5/us101pattersonavenue.htm">
+          <img src="https://cwwp2.dot.ca.gov/data/d5/cctv/image/us101pattersonavenue/us101pattersonavenue.jpg" style="width:100%">
+        </a>
+      </div>
+    </div>
     <br>
-  </div>
+    <br>
+
 
   <!-- for view of SB when camera working again: img src="https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg" style="width:100%" -->
 
@@ -714,6 +738,7 @@ li.dropdown {
     <a id="links" href="https://www.tidespro.com/us/california/santa-barbara/week">
       <img src="images/TidesPro_logo.png" height="45" width="50"> Tides
     </a>
+    <br><br>
 
 
     <!-- ============   Astronomy Pic of the Day ============ -->
@@ -725,7 +750,24 @@ li.dropdown {
 
     </a>
 
+    <!-- ============   Google Traffic Map ============ -->
+    <a href="https://www.google.com/maps/@34.4371161,-119.8308156,12035m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
+      onclick="window.open(this.href, 'popupwindow', style='width:80%', 'scrollbars=yes,resizable=yes'); return false;">
 
+       <img src="images/GoogleTraffic_icon.png"> Google Traffic Map
+       </img>
+
+    </a>
+
+<!--
+    <a href="https://www.google.com/maps/@34.4371161,-119.8308156,12035m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D",
+      target="_blank" rel="noopener noreferrer">Google Traffic Map</a>
+
+    <button onclick="window.open('https://www.google.com/maps/@34.4371161,-119.8308156,12035m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D',
+      '_blank', 'width=50%');">
+      Google Traffic Map
+    </button>
+-->
 
 <!--
     <a id="links" href="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOm51bGwsImNlbnRlciI6Wy0xMTkuMDczLDM3LjQzN10sInpvb20iOjZ9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoidG9wb2dyYXBoaWMiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6ZmFsc2UsImN3YSI6ZmFsc2UsInJmYyI6ZmFsc2UsInN0YXRlIjpmYWxzZSwibWVudSI6dHJ1ZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC44LCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D#/">
@@ -973,6 +1015,7 @@ li.dropdown {
 
 
     <!-- ============ Current Traffic, Google  =========== -->
+
     <h1> Current Traffic, Google </h1>
 
     <script>
@@ -1006,8 +1049,12 @@ li.dropdown {
     </iframe>
 
     <h1> previous version </h1>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d266141.8834381929!2d-119.99419431373767!3d34.42872994046375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e96aad6cd666f9%3A0x23116fdf4d27616e!2s430%20Camino%20del%20Remedio%2C%20Santa%20Barbara%2C%20CA%2093110!5e1!3m2!1sen!2sus!4v1768357446648!5m2!1sen!2sus"
+    <!--       https://maps.app.goo.gl/vAxeDcdQ4o9GW7WM9 -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d266141.8834381929!2d-119.99419431373767!3d34.42872994046375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e96aad6cd666f9%3A0x23116fdf4d27616e!2s430%20Camino%20del%20Remedio%2C%20Santa%20Barbara%2C%20CA%2093110!5e1!3m2!1sen!2sus!4v1768357446648!5m2!1sen!2sus"
        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+       <iframe src="https://maps.app.goo.gl/vAxeDcdQ4o9GW7WM9"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
     <div id="map" alt="Current Trafic, Google Maps"> </div>
