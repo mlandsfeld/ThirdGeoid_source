@@ -353,10 +353,13 @@ li.dropdown {
       // Get the image element by its ID
       let image = document.getElementById("geosta-image");
       console.log('in moveToSatWest, image: ', image)
+      let anchor = document.getElementById("geosta-anchor");
+      console.log('in moveToSatWest, anchor: ', anchor)
 
       // Set the new image source (replace with your image URL or path)
       image.src= "https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg";
-      image.href="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/1808x1808.jpg";
+      anchor.href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G18&src=nav"
+      //image.href="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/1808x1808.jpg";
     }
   </script>
 
@@ -364,25 +367,32 @@ li.dropdown {
     function moveToSatEast() {
       // Get the image element by its ID
       let image = document.getElementById("geosta-image");
-      console.log('in moveToSatWest, image: ', image)
+      console.log('in moveToSatEast, image: ', image)
+      let anchor = document.getElementById("geosta-anchor");
+      console.log('in moveToSatEast, anchor: ', anchor)
 
       // Set the new image source (replace with your image URL or path)
       image.src = "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg";
+      anchor.href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G19&src=nav"
                  //https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg
-                 //https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg
     }
   </script>
 
   <div class="center-container">
     <div class="image-container">
-      <h2>GeoStationary satllites</h2>
-      <img id="geosta-image" class="target-image" src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg"
-           alt="Geostationary Satellite Image">
 
-      <div class="selector-element">
-        <button class="button" onclick="moveToSatWest()" style="width: 50px; height: 35px;"> << </button>
-        <button class="button" onclick="moveToSatEast()" style="width: 50px; height: 35px;"> >> </button>
-      </div>
+      <h2>GeoStationary satllites</h2>
+
+      <a  id="geosta-anchor" href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G18&src=nav">
+
+        <img id="geosta-image" class="target-image"
+          src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg">
+      </a>
+
+        <div class="selector-element">
+          <button class="button" onclick="moveToSatWest()" style="width: 50px; height: 35px;"> << </button>
+          <button class="button" onclick="moveToSatEast()" style="width: 50px; height: 35px;"> >> </button>
+        </div>
     </div>
   </div>
 
@@ -680,167 +690,124 @@ li.dropdown {
     <br>
     <br>
 
-
-  <!-- for view of SB when camera working again: img src="https://cdn.hpwren.ucsd.edu/RT/syp-e-mobo-c.jpg" style="width:100%" -->
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-
-
-
-    <!-- ============   WX Discusion, Oxnard ============ -->
-    <a id="links" href="https://www.weather.gov/wrh/TextProduct?product=afdlox">
-      <img src="images/NOAA.png" height="45" width="50"> WX Discusion
-    </a>
-
-    <!-- ============   10 Day Weather Forecast, Goleta, Weather Underground ============ -->
-    <a href="https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day">
-      <img src="images/wunderground.jpg" > Goleta, CA
-    </a>
-
-    <!-- ============   Sunrise Sunset Calendar ============ -->
-    <a href="https://www.sunrisesunset.com/calendar.asp?back=USA&comb_city_info=Goleta%2C+California%2C+USA%3B119.8276%3B34.4358%3B-8%3B1&want_info=1&want_mphase=1&want_mrms=1&want_eqx_sol=1&want_daylen=1&time_type=0&wsom=0" >
-      <img src="images/sunrise_sunset.png" > Goleta, CA
-    </a>
-
     <br>
     <br>
 
-    <!-- ============   SB Web Cameras  ============ -->
-    <a href="http://cosb.countyofsb.org/pwd/pwwater.aspx?id=45022">
-      <img src="images/SBCounty.png" height="46" width="50"> SB WebCams
-    </a>
-
-    <!-- ============   Rainfall Accumulations, SB County ============ -->
-    <a href="https://rain.cosbpw.net/home.php">
-      <img src="images/SBCounty.png" height="46" width="50"> SB Onerain </>
-    </a>
-
-    <!-- ============  Rainfall Accumulations, Ventura County ============ -->
-    <a href="https://www.vcwatershed.net/fws/rain-map">
-      <img src="images/VCwatershed.png" height="46" width="125" alt="VCwatershed.com"> Ventura rain acc</img>
-    </a>
-    <br>
-    <br>
-
-    <!-- ============  Weather Model Comparison Map, Windy.com ============ -->
-    <a href="https://www.windy.com/?namConus,34.433,-119.837,7">
-      <img src="images/Windy.png" alt="Windy.com"></img>
-    </a>
-
-    <!-- ============  Earth Null School ============ -->
-    <a href="https://earth.nullschool.net/#current/wind/isobaric/500hPa/orthographic=-113.13,30.75,708">
-      <img src="images/NullSchool.png" alt="NullSchool"></img>
-      Earth Null School
-    </a>
-
-    <!-- ============  Weather West ============ -->
-    <a href="https://weatherwest.com">
-      <img src="images/WeatherWest.png" alt="WeatherWest.com"></img>
-      Weather West
-    </a>
-
-    <br>
-    <br>
-
-
-   <!-- ============ GOES Image Viewer, NOAA =========== -->
-    <a href="https://www.star.nesdis.noaa.gov/GOES/sector.php?sat=G17&sector=psw">
-      <img src="images/NOAA.png" height="45" width="50"> GOES West viewer
-    </a>
-
-    <!-- ============   NWS Radar =====<======= -->
-    <a id="links" href="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOm51bGwsImNlbnRlciI6Wy0xMTguOTk0LDM1LjM3N10sImxvY2F0aW9uIjpudWxsLCJ6b29tIjo4LjA0OTkyOTU0NjkwMjk3M30sImFuaW1hdGluZyI6ZmFsc2UsImJhc2UiOiJ0b3BvZ3JhcGhpYyIsImFydGNjIjpmYWxzZSwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwicmZjIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51Ijp0cnVlLCJzaG9ydEZ1c2VkT25seSI6ZmFsc2UsIm9wYWNpdHkiOnsiYWxlcnRzIjowLjgsImxvY2FsIjowLjYsImxvY2FsU3RhdGlvbnMiOjAuOCwibmF0aW9uYWwiOjAuNn19#/">
-      <img src="images/NOAA.png" height="45" width="50"> NWS Radar
-    </a>
-
-    <!-- ============   Tides Santa Barbara ============ -->
-    <a id="links" href="https://www.tidespro.com/us/california/santa-barbara/week">
-      <img src="images/TidesPro_logo.png" height="45" width="50"> Tides
-    </a>
-    <br><br>
-
-
-    <!-- ============   Astronomy Pic of the Day ============ -->
-    <a href="https://apod.nasa.gov/apod/astropix.html"
-      onclick="window.open(this.href, 'popupwindow', style='width:80%', 'scrollbars=yes,resizable=yes'); return false;">
-
-       <img src="images/AstroPicDay_logo.png"> Astronomy Pic of the Day
-       </img>
-
-    </a>
-
-    <!-- ============   Google Traffic Map ============
-    <a href="https://www.google.com/maps/@34.4371161,-119.8308156,12035m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
-             https://www.google.com/maps/@34.4351996,-119.816205,13515m/data=!3m1!1e3!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcxMi4wIKXMDSoASAFQAw%3D%3D
-
-  -->
-    <a href="https://www.google.com/maps/@34.4351996,-119.816205,14.04z/data=!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
-      onclick="window.open(this.href, 'popupwindow', style='width:80%', 'scrollbars=yes,resizable=yes'); return false;">
-
-       <img src="images/GoogleTraffic_icon.png"> Google Traffic Mapx
-       </img>
-
-    </a>
-
-<!--
-    <a href="https://www.google.com/maps/@34.4371161,-119.8308156,12035m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D",
-      target="_blank" rel="noopener noreferrer">Google Traffic Map</a>
-
-    <button onclick="window.open('https://www.google.com/maps/@34.4371161,-119.8308156,12035m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D',
-      '_blank', 'width=50%');">
-      Google Traffic Map
-    </button>
--->
-
-<!--
-    <a id="links" href="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOm51bGwsImNlbnRlciI6Wy0xMTkuMDczLDM3LjQzN10sInpvb20iOjZ9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoidG9wb2dyYXBoaWMiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6ZmFsc2UsImN3YSI6ZmFsc2UsInJmYyI6ZmFsc2UsInN0YXRlIjpmYWxzZSwibWVudSI6dHJ1ZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC44LCJsb2NhbCI6MC42LCJsb2NhbFN0YXRpb25zIjowLjgsIm5hdGlvbmFsIjowLjZ9fQ%3D%3D#/">
--->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
 
     <!-- ========== Links Table ======== -->
 
     <div class="center-container">
 
-      <h1>Weather links</h1>
+      <h1>External links</h1>
 
       <table style="margin-left: auto; margin-right: auto;">
 
         <tr>
           <td>
-            <h2>WX Discussion</h2>
-            <a id="links" href="https://www.weather.gov/wrh/TextProduct?product=afdlox">
-              <img style="width:95%" src="images/links/WX_discussion_icon.png">
+            <h2>Astronomy, Pic of Day</h2>
+            <a id="links" href="https://apod.nasa.gov/apod/astropix.html">
+              <img style="width:95%" src="images/links/Astronomy_POD_icon.png">
             </a>
           </td>
 
           <td>
-            <h2>Weather Underground Goleta</h2>
-            <a href="https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day">
-              <img style="width:95%" src="images/links/Weather_Underground_icon.png">
+            <h2>Earth Null School 200mb Winds</h2>
+            <a href="https://earth.nullschool.net/#current/wind/isobaric/500hPa/orthographic=-113.13,30.75,708">
+              <img style="width:95%" src="images/links/Earth_Null_School_icon.png">
             </a>
           </td>
 
           <td>
-            <h2>Weather West CA long term</h2>
-            <a id="links" href="https://www.weather.gov/wrh/TextProduct?product=afdlox">
-              <img style="width:95%" src="images/links/Weather_West_icon.png">
+            <h2>Google Traffic</h2>
+            <a href="https://www.google.com/maps/@34.4351996,-119.816205,14.04z/data=!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
+              onclick="window.open(this.href, 'popupwindow', style='width:80%', 'scrollbars=yes,resizable=yes'); return false;">
+
+               <img style="width:95%" src="images/links/Google_Traffic_icon.png">
             </a>
           </td>
 
        </tr>
 
+      <tr>
+        <td>
+          <h2>SB Rain Gauges</h2>
+          <a id="links" href="https://rain.cosbpw.net">
+            <img style="width:95%" src="images/links/SB_rainfall_icon.png">
+          </a>
+        </td>
+
+        <td>
+          <h2>NWS Radar</h2>
+          <a href="https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOm51bGwsImNlbnRlciI6Wy0xMTguOTk0LDM1LjM3N10sImxvY2F0aW9uIjpudWxsLCJ6b29tIjo4LjA0OTkyOTU0NjkwMjk3M30sImFuaW1hdGluZyI6ZmFsc2UsImJhc2UiOiJ0b3BvZ3JhcGhpYyIsImFydGNjIjpmYWxzZSwiY291bnR5IjpmYWxzZSwiY3dhIjpmYWxzZSwicmZjIjpmYWxzZSwic3RhdGUiOmZhbHNlLCJtZW51Ijp0cnVlLCJzaG9ydEZ1c2VkT25seSI6ZmFsc2UsIm9wYWNpdHkiOnsiYWxlcnRzIjowLjgsImxvY2FsIjowLjYsImxvY2FsU3RhdGlvbnMiOjAuOCwibmF0aW9uYWwiOjAuNn19#/">
+            <img style="width:95%" src="images/links/NWS_radar_icon.png">
+          </a>
+        </td>
+
+        <td>
+          <h2>Ocean Tides SB (TidePros)</h2>
+          <a id="links" href="https://www.tidespro.com/us/california/santa-barbara/week">
+            <img style="width:95%" src="images/links/TidePros_SB_icon.png">
+          </a>
+        </td>
+
+      </tr>
+
+      <tr>
+       <td>
+         <h2>Ventura Rain Gauges</h2>
+         <a id="links" href="https://www.vcwatershed.net/fws/rain-map">
+           <img style="width:95%" src="images/links/Ventura_rainfall_icon.png">
+         </a>
+       </td>
+
+       <td>
+         <h2>Windy Radar ++</h2>
+         <a id="links" href="https://www.windy.com/?namConus,34.433,-119.837,7">
+           <img style="width:95%" src="images/links/Windy_radar_wind_icon.png">
+         </a>
+       </td>
+
+
+       <td>
+         <h2>Weather Underground 10-day Forecast</h2>
+         <a href="https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day">
+           <img style="width:95%" src="images/links/Weather_Underground_icon.png">
+         </a>
+       </td>
+      </tr>
+
+
+    <tr>
+
+      <td>
+        <h2>Weather West CA long term</h2>
+        <a id="links" href="https://weatherwest.com">
+          <img style="width:95%" src="images/links/Weather_West_icon.png">
+        </a>
+      </td>
+
+      <td>
+        <h2>WX Discussion</h2>
+        <a id="links" href="https://www.weather.gov/wrh/TextProduct?product=afdlox">
+          <img style="width:95%" src="images/links/WX_discussion_icon.png">
+        </a>
+      </td>
+
+      <td>
+        <h2>Sun/Moon Rise/Set Table</h2>
+        <a id="links" href="https://www.sunrisesunset.com/calendar.asp?back=USA&comb_city_info=Goleta%2C+California%2C+USA%3B119.8276%3B34.4358%3B-8%3B1&want_info=1&want_mphase=1&want_mrms=1&want_eqx_sol=1&want_daylen=1&time_type=0&wsom=0" >
+          <img style="width:95%" src="images/links/Sunrise_Sunset_icon.png">
+        </a>
+      </td>
+
+    </tr>
+
+
       </table>
     </div>
 
+    <br>
+    <br>
     <!-- ============ Snippet CHIRPS-GEFS  Prediction ============ -->
 
     <div class="center-container">
@@ -914,7 +881,7 @@ li.dropdown {
         </a>
       </div>
       <div class="column2" style="text-align: center;">
-        <h2>30 W Mission Wall Analemma with Blue Marble</h2>
+        <h2>30 W Mission Wall Analemma</h2>
        <a href="images/analemma_blue_marble.png">
           <img src="images/analemma_blue_marble.png" style="width:80%">
         </a>
@@ -1060,33 +1027,15 @@ li.dropdown {
     <br>
     <br>
 
-    <!-- ============ Tide Chart Los Angeles =========== -->
-    <div style="width: 468px; background-color: white;" align="center">
-      <script type="text/javascript" src="http://freetidetables.com/scripts/?script=468x310_tgi&amp;uid=d64df87e"></script>
-      <a href="http://freetidetables.com" target="_blank" style="font-family: arial; font-style: italic; font-variant: normal; font-weight: normal; font-size: 10pt; line-height: normal; font-size-adjust: none; font-stretch: normal; color: blue; text-decoration: none;">
-      Tide, Tables, Charts and Scripts at FreeTideTables.com
-      </a>
-    </div>
-    <br>
-    <br>
-
 
     <!-- ============= US Drought Monitor (weekly) ============= -->
     <a href="https://droughtmonitor.unl.edu">
       <img src="https://droughtmonitor.unl.edu/data/png/current/current_usdm.png" WIDTH="495" HEIGHT="382">
     </a>
-    <br>
-    <br>
 
-    <!-- ============= Global Satellite image ============= -->
-    <a href="https://www.nrlmry.navy.mil">
-      <img "https://www.nrlmry.navy.mil/archdat/global/stitched/ir/LATEST.jpg" width="1000" height="347"
-        alt="Global Stitched Satellite image, NRL">
-    </a>
     <br>
     <br>
-
-
+    <br>
     <br>
     <br>
 
@@ -1104,6 +1053,7 @@ li.dropdown {
     -->
 
     <!-- ============= Sea Surface Temp Anomalies (last month) ============= -->
+    <h2>El Nino / La Nina Watch</h2>
     <a href="http://www.cpc.ncep.noaa.gov/products/analysis_monitoring/lanina/enso_evolution-status-fcsts-web.pdf">
       <img src="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_update/sstweek_c.gif">
       <!-- <img src="http://chg-dub.chc.ucsb.edu/test/marty/sst_anomaly.pdf"> -->
