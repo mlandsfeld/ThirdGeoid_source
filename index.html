@@ -31,10 +31,22 @@
 
     <script>
       async function getSunTimes(lat, lng) {
-        try {
+        fetch('https://api.sunrise-sunset.org/v2?lat=34.4&lng=-119.8')
+          .then(response => response.json())
+          .then(data => {
+            console.log('Sunrise:', data.sunrise + data.utc_offset);
+            console.log('Sunset:', data.sunset);
+            console.log('SunriseSunset data:', data);
+          }
+        );
+      }
+
+             /*
           // formatted=0 returns the times in standard ISO 8601 UTC format
-          const response = await fetch(`https://sunrise-sunset.org{lat}&lng=${lng}&formatted=0`);
+          // https://api.sunrise-sunset.org/v2?lat=34.4&lng=-119.8
+          const response = await fetch('https://api.sunrise-sunset.org/v2?lat={lat}&lng=${lng}&formatted=0');
           const data = await response.json();
+          console.log('SunriseSunset data: ', data);
 
           if (data.status === "OK") {
             // Convert UTC strings into local JavaScript Date objects
@@ -46,10 +58,13 @@
           } else {
             console.error("API Error status:", data.status);
           }
+
         } catch (error) {
           console.error("Failed to fetch sun times:", error);
         }
+
       }
+ */
     </script>
 
 
@@ -761,9 +776,10 @@ li.dropdown {
 
     <!-- ============   Google Traffic Map ============
     <a href="https://www.google.com/maps/@34.4371161,-119.8308156,12035m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
+             https://www.google.com/maps/@34.4351996,-119.816205,13515m/data=!3m1!1e3!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcxMi4wIKXMDSoASAFQAw%3D%3D
 
   -->
-    <a href="https://www.google.com/maps/@34.4351996,-119.816205,14.04z/ data=!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
+    <a href="https://www.google.com/maps/@34.4351996,-119.816205,14.04z/data=!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
       onclick="window.open(this.href, 'popupwindow', style='width:80%', 'scrollbars=yes,resizable=yes'); return false;">
 
        <img src="images/GoogleTraffic_icon.png"> Google Traffic Mapx
@@ -786,6 +802,44 @@ li.dropdown {
 -->
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- ========== Links Table ======== -->
+
+    <div class="center-container">
+
+      <h1>Weather links</h1>
+
+      <table style="margin-left: auto; margin-right: auto;">
+
+        <tr>
+          <td>
+            <h2>WX Discussion</h2>
+            <a id="links" href="https://www.weather.gov/wrh/TextProduct?product=afdlox">
+              <img style="width:95%" src="images/links/WX_discussion_icon.png">
+            </a>
+          </td>
+
+          <td>
+            <h2>Weather Underground Goleta</h2>
+            <a href="https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day">
+              <img style="width:95%" src="images/links/Weather_Underground_icon.png">
+            </a>
+          </td>
+
+          <td>
+            <h2>Weather West CA long term</h2>
+            <a id="links" href="https://www.weather.gov/wrh/TextProduct?product=afdlox">
+              <img style="width:95%" src="images/links/Weather_West_icon.png">
+            </a>
+          </td>
+
+       </tr>
+
+      </table>
+    </div>
 
     <!-- ============ Snippet CHIRPS-GEFS  Prediction ============ -->
 
@@ -799,45 +853,16 @@ li.dropdown {
       <div id="mySnippet"></div>
 
 
-  <script type="text/javascript">
-    new Snippet({
-      ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-      id: 'mySnippet',
-      dataset: 'CHIRPSGEFS',
-      subDataset: 'chirps_gefs',
-      region: 'global',
-      periodicity: '1-day',
-      period: 'latest',
-      forecastPeriod: '10day',
-      showDekadControl: true,
-      showYearControl: true,
-      units: 'mm',
-      statistic: 'data',
-      width: 1000,
-      height: 500,
-      zoom: 4.4,
-      center: [38, -95],
-      showGaul20080: true,
-      showGaul20081: true,
-      showGaul20082: false,
-      showKenyaWards: false,
-      scrollWheelZoom: false,
-    });
-  </script>
-<!--
       <script type="text/javascript">
         new Snippet({
           ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
           id: 'mySnippet',
           dataset: 'CHIRPSGEFS',
           subDataset: 'chirps_gefs',
-          showGaul20080: true,
-          showGaul20081: true,
-          showGaul20082: false,
-          showKenyaWards: false,
           region: 'global',
           periodicity: '1-day',
           period: 'latest',
+          forecastPeriod: '10day',
           showDekadControl: true,
           showYearControl: true,
           units: 'mm',
@@ -846,10 +871,14 @@ li.dropdown {
           height: 500,
           zoom: 4.4,
           center: [38, -95],
+          showGaul20080: true,
+          showGaul20081: true,
+          showGaul20082: false,
+          showKenyaWards: false,
+          scrollWheelZoom: false,
         });
-        // boundaries: ['gaul_2008_0', 'gaul_2008_1', 'gaul_2008_2', 'kenya_wards'],
       </script>
--->
+
     </div>
 
       </script>
@@ -864,9 +893,9 @@ li.dropdown {
       <h1> Sun and Moon Positions </h1>
 
       <a href="http://timeanddate.com/worldclock/sunearth.html">
-          <img src="http://www.timeanddate.com/scripts/sunmap.php?obj=moon" style="width:66.0%;">
-          <!-- note for other dates add iso param: https://www.timeanddate.com/scripts/sunmap.php?obj=moon&iso=20260706T200403 -->
-        </a>
+        <img src="http://www.timeanddate.com/scripts/sunmap.php?obj=moon" style="width:66.0%;">
+        <!-- note for other dates add iso param: https://www.timeanddate.com/scripts/sunmap.php?obj=moon&iso=20260706T200403 -->
+      </a>
     </div>
 
     <br>
