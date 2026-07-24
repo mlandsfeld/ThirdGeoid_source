@@ -396,10 +396,10 @@ li.dropdown {
           src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg">
       </a>
 
-        <div class="selector-element">
-          <button class="button" onclick="moveToSatWest()" style="width: 50px; height: 35px;"> << </button>
-          <button class="button" onclick="moveToSatEast()" style="width: 50px; height: 35px;"> >> </button>
-        </div>
+      <div class="selector-element">
+        <button class="button" onclick="moveToSatWest()" style="width: 50px; height: 35px;"> << </button>
+        <button class="button" onclick="moveToSatEast()" style="width: 50px; height: 35px;"> >> </button>
+      </div>
     </div>
   </div>
 
@@ -420,6 +420,24 @@ li.dropdown {
   <img src="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg"
     style="width:66.0%; margin-left:auto; margin-right:auto; display:block;">
 -->
+  <br>
+  <br>
+
+  <!-- ============   Moon Phase  ============ -->
+
+<div class="center-container">
+<div class="image-container">
+
+  <div style="width: 60%; margin-left:auto; margin-right:auto;">
+    <iframe style="display: block;"
+      src="https://cdnres.willyweather.com/widget/loadView.html?id=160250"
+        width="20%" height="200px" frameborder="0" scrolling="no">
+    </iframe>
+  </div>
+
+</div>
+</div>
+
 
   <br>
   <br>
@@ -429,7 +447,7 @@ li.dropdown {
 
     <div class="center-container">
 
-      <h1> SSEC US Composite </h1>
+      <h2> SSEC US Composite </h2>
 
       <a href="https://www.ssec.wisc.edu/data/us_comp/large">
         <img width="80%" height="80%" src="http://www.ssec.wisc.edu/data/us_comp/image7.jpg">
@@ -471,6 +489,7 @@ li.dropdown {
           10 hours
         </a>
         <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=240&dim=1">
+                 https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G19&sector=cgl&band=GEOCOLOR&length=12&src=nav
           20 hours
         </a>
       </div>
@@ -480,6 +499,22 @@ li.dropdown {
     <br>
   </div>
 
+
+  <!-- ============ GOES East, Great Lakes  ============
+    https://cdn.star.nesdis.noaa.gov/GOES19/ABI/SECTOR/CGL/GEOCOLOR/1200x1200.jpg
+   -->
+
+  <div class="center-container">
+    <h2> GOES East, Great Lakesx </h2>
+
+    <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G19&sector=cgl&band=GEOCOLOR&length=24&dim=1">
+      <img width="80%" height="80%"
+        src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/SECTOR/cgl/GEOCOLOR/20261981821_GOES19-ABI-cgl-GEOCOLOR-600x600.jpg">
+    </a>
+  </div>
+
+
+
   <br>
   <br>
 
@@ -488,7 +523,7 @@ li.dropdown {
   <div style="width: 50%; margin-left:auto; margin-right:auto;">
     <iframe style="display: block;"
       src="https://cdnres.willyweather.com/widget/loadView.html?id=160187"
-      width="100%" height="300px" frameborder="0" scrolling="no">
+        width="100%" height="300px" frameborder="0" scrolling="no">
     </iframe>
     <a
       style="height: 20px;display: block;margin: -20px 0 0 0;z-index: 1;text-indent: -9999em;
@@ -497,6 +532,10 @@ li.dropdown {
       Goleta Forecast
     </a>
   </div>
+
+
+  <br>
+  <br>
 
  <!--
 <div style="width: 210px;">
@@ -818,7 +857,7 @@ li.dropdown {
     <!-- ============ Snippet CHIRPS-GEFS  Prediction ============ -->
 
     <div class="center-container">
-      <h1 href="https://snippets.chc.ucsb.edu/">Snippet: CHIRPS-GEFS 10 day Precipitation Forecast</h1>
+      <h1 href="https://snippets.chc.ucsb.edu/">Snippet: CHIRPS3-GEFS 10 day Precipitation Forecast</h1>
       <h2> Click on map to zoom with mouse </h2>
 
       <!-- EWX Snippet Map -->
@@ -860,7 +899,6 @@ li.dropdown {
       <br>
 
 
-
     <!-- ============= Sun and Moon Positions & Analemma (current) ============= -->
 
     <div class="center-container">
@@ -871,6 +909,7 @@ li.dropdown {
         <!-- note for other dates add iso param: https://www.timeanddate.com/scripts/sunmap.php?obj=moon&iso=20260706T200403 -->
       </a>
     </div>
+
 
     <br>
     <br>
