@@ -30,17 +30,27 @@
     <!-- Sun Times calculations -->
 
     <script>
-      async function getSunTimes(lat, lng) {
+      async function getSunTimes(lat, lng) { // note that lat, lng are overridden on next line
         fetch('https://api.sunrise-sunset.org/v2?lat=34.4&lng=-119.8')
           .then(response => response.json())
           .then(data => {
             console.log('Sunrise:', data.sunrise + data.utc_offset);
-            console.log('Sunset:', data.sunset);
+            console.log('Sunset:', data.sunset + data.utc_offset);
             console.log('SunriseSunset data:', data);
           }
         );
       }
 
+      // Get UTC Time
+      const utcTime = new Date().toISOString();
+
+      /*
+      async function getUtcTime() {
+        const utcTime = new Date().toISOString();
+        console.log('utcTime: ', utcTime);
+
+      }
+      */
              /*
           // formatted=0 returns the times in standard ISO 8601 UTC format
           // https://api.sunrise-sunset.org/v2?lat=34.4&lng=-119.8
@@ -107,7 +117,7 @@
     <!-- Google map -->
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc-QguMTjI9sijdC6G09KRoyREDsTVHFk&callback=initMap"
-      async defer>
+        async defer>
     </script>
 
     <title>Third Geoid Home</title>
@@ -355,6 +365,7 @@ li.dropdown {
       console.log('in moveToSatWest, image: ', image)
       let anchor = document.getElementById("geosta-anchor");
       console.log('in moveToSatWest, anchor: ', anchor)
+console.log('utcTime: ', utcTime);
 
       // Set the new image source (replace with your image URL or path)
       image.src= "https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg";
@@ -751,17 +762,22 @@ li.dropdown {
 
     <div class="center-container">
 
-      <h1>External links</h1>
+      <h1 id="links">External links</h1>
 
       <table style="margin-left: auto; margin-right: auto;">
 
         <tr>
           <td>
             <h2>Astronomy, Pic of Day</h2>
-            <a id="links" href="https://apod.nasa.gov/apod/astropix.html">
+            <a href="https://apod.nasa.gov/apod/astropix.html"
+              onclick="window.open(this.href, 'popupwindow2',
+                'scrollbars=yes,resizable=yes,menubar=true,toolbar=yes'">
+
               <img style="width:95%" src="images/links/Astronomy_POD_icon.png">
             </a>
           </td>
+
+
 
           <td>
             <h2>Earth Null School 200mb Winds</h2>
@@ -770,16 +786,21 @@ li.dropdown {
             </a>
           </td>
 
+
+
           <td>
             <h2>Google Traffic</h2>
             <a href="https://www.google.com/maps/@34.4351996,-119.816205,14.04z/data=!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
-              onclick="window.open(this.href, 'popupwindow', style='width:80%', 'scrollbars=yes,resizable=yes'); return false;">
+              onclick="window.open(this.href, 'popupwindow', style='width:80%',
+                       'scrollbars=yes,resizable=yes'); return false;">
 
                <img style="width:95%" src="images/links/Google_Traffic_icon.png">
             </a>
           </td>
 
        </tr>
+
+
 
       <tr>
         <td>
