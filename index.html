@@ -41,15 +41,59 @@
         );
       }
 
+
+      // Calculate Day of the Year (DOY)  example: dayOfYear(new Date("2026-08-17")); // 229
+
+     function dayOfYear(date = new Date()) {
+        const start = new Date(date.getFullYear(), 0, 0);
+        const diff = date - start;
+        return Math.floor(diff / 86400000);
+      }
+
+
       // Get UTC Time
       const utcTime = new Date().toISOString();
 
+
+      //window.open('https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day', '_blank');
+
       /*
+        const { chromium } = require("playwright");
+
+        async function downloadForecastAsPNG() {
+          const url =
+            "https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day";
+
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({
+            viewport: { width: 1440, height: 2000 }
+          });
+
+          await page.goto(url, {
+            waitUntil: "networkidle",
+            timeout: 60000
+          });
+
+          await page.screenshot({
+            path: "goleta-forecast.png",
+            fullPage: true
+          });
+
+          await browser.close();
+
+          return "goleta-forecast.png";
+        }
+      */
+
+     /*
       async function getUtcTime() {
         const utcTime = new Date().toISOString();
         console.log('utcTime: ', utcTime);
 
       }
+
+
+
       */
              /*
           // formatted=0 returns the times in standard ISO 8601 UTC format
@@ -78,12 +122,14 @@
     </script>
 
 
+
+
     <script>
-      var newwindow;
+      var newWindow;
       function pop(url){
-      newwindow=window.open(url,'name','height=570,width=700');
+      newWindo=window.open(url,'name','height=570,width=700');
       if (window.focus) {
-        newwindow.focus()}
+        newWindow.focus()}
       }
 
       function imagemap(type) {
@@ -111,6 +157,9 @@
         //var bikeLayer = new google.maps.BicyclingLayer();
         //bikeLayer.setMap(map);
       }
+
+
+
     </script>
 
 
@@ -273,52 +322,53 @@ li.dropdown {
     text-align: center; /* Centers all inline elements inside the div */
   }
 
-<!-- -------
+  <!-- -------
 
--->
+  -->
 
-/* Change the image when the 'image-container' has the 'active-container' class */
-.active-container .target-image {
-  background-image: url('https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg');
-  display: none; /* Hide the <img> tag */
-}
-/* Ensure the background image has a size */
-.target-image {
-  background-size: cover;
-  width: 66.6%;
-  height: 66.6%;
-}
+  /* Change the image when the 'image-container' has the 'active-container' class */
+  .active-container .target-image {
+    background-image: url('https://www.data.jma.go.jp/mscweb/data/himawari/img/fd_/fd__trm_2320.jpg');
+    display: none; /* Hide the <img> tag */
+  }
+  /* Ensure the background image has a size */
+  .target-image {
+    background-size: cover;
+    width: 66.6%;
+    height: 66.6%;
+  }
 
-.xsidebyside-container {
-  display: flex; /* Enables flexbox layout for children */
-  justify-content: center; /* Centers the images horizontally (optional) */
-  gap: 10px; /* Adds space between images (optional) */
-}
+  .xsidebyside-container {
+    display: flex; /* Enables flexbox layout for children */
+    justify-content: center; /* Centers the images horizontally (optional) */
+    gap: 10px; /* Adds space between images (optional) */
+  }
 
-.sidebyside-container img {
-  width: 50%; /* Each image takes up half the container width */
-  max-width: 100%; /* Ensures images are responsive */
-  height: auto; /* Maintains aspect ratio */
-}
+  .sidebyside-container img {
+    width: 50%; /* Each image takes up half the container width */
+    max-width: 100%; /* Ensures images are responsive */
+    height: auto; /* Maintains aspect ratio */
+  }
 
 
 
-.image-center-container {
-  display: inline-grid;
-  place-items: center; /* Centers children horizontally and vertically */
-}
+  .image-center-container {
+    display: inline-grid;
+    place-items: center; /* Centers children horizontally and vertically */
+  }
 
-.image-center-container img,
-.image-center-container .centered-text {
-  grid-area: 1 / 1; /* Forces both elements into the exact same space */
-}
+  .image-center-container img,
+  .image-center-container .centered-text {
+    grid-area: 1 / 1; /* Forces both elements into the exact same space */
+  }
 
-.centered-text {
-  color: white; /* Style your text to stand out */
-  text-align: center;
-}
+  .centered-text {
+    color: white; /* Style your text to stand out */
+    text-align: center;
+  }
 
 </style>
+
 
 </head>
 
@@ -347,9 +397,19 @@ li.dropdown {
   <a id=home> </a>
 
   <script>
-    //const sunTimes = getSunTimes(40.7128, -74.0060);
+
+     //const sunTimes = getSunTimes(40.7128, -74.0060);
     var sunTimes = getSunTimes(40.7128, -74.0060);
-    console.log('Sun Times: ', sunTimes)
+    console.log('Sun Times: ', sunTimes);
+
+    var doy = dayOfYear(new Date());
+    console.log("Day of Year: ", doy);
+
+    //downloadForecastAsPNG()
+    //  .then(file => console.log(`Saved screenshot: ${file}`))
+    //  .catch(console.error);
+    //console.log("after downloadForecastAsPNG...")
+
   </script>
 
   <br>
@@ -362,24 +422,84 @@ li.dropdown {
     Band 13 IR, https://www.data.jma.go.jp/mscweb/data/himawari/img/fd_/fd__b13_1950.jpg
     Consider oscillating between these two over 24 hour period....
   -->
+
+
+
+    <div class="center-container">
+      <div class="image-container">
+
+
+        <div>
+          <h2>GeoStationary satllites</h2>
+        </div>
+
+
+        <a  id="geosta-anchor" href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G18&src=nav">
+
+          <img id="geosta-image" class="target-image">
+        </a>
+
+        <div class="selector-element">
+          <button class="button" onclick="moveFDWest()" style="width: 50px; height: 35px;"> << </button>
+          <button class="button" onclick="moveFDEast()" style="width: 50px; height: 35px;"> >> </button>
+          <h2 style='color:yellow'>  Working! </h2>
+        </div>
+      </div>
+    </div>
+
+
   <script>
-    function moveToSatWest() {
+
+    const fullDiskImg = [
+      "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg",
+      "https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg",
+      "https://www.data.jma.go.jp/mscweb/data/himawari/img/fd_/fd__trm_2320.jpg"
+    ];
+
+    console.log('fullDiskImg: ', fullDiskImg[0]);
+
+    let currentImage = 0;
+
+    let image = document.getElementById("geosta-image");
+    image.src= fullDiskImg[currentImage];
+    console.log('image.src= ', image.src);
+
+
+    function moveFDWest() {
+      currentImage = (currentImage + 1) % fullDiskImg.length;
+      console.log('currentImage = ', currentImage);
+
+      document.getElementById("geosta-image").src = fullDiskImg[currentImage];
+    }
+
+    function moveFDEast() {
+      currentImage =
+        (currentImage - 1 + fullDiskImg.length) % fullDiskImg.length;
+      console.log('currentImage = ', currentImage);
+
+      document.getElementById("geosta-image").src = fullDiskImg[currentImage];
+    }
+
+  </script>
+
+
+  <script>
+
+    function xmoveToSatWest() {
       // Get the image element by its ID
       let image = document.getElementById("geosta-image");
       console.log('in moveToSatWest, image: ', image)
       let anchor = document.getElementById("geosta-anchor");
       console.log('in moveToSatWest, anchor: ', anchor)
-console.log('utcTime: ', utcTime);
+      console.log('utcTime: ', utcTime);
 
       // Set the new image source (replace with your image URL or path)
       image.src= "https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg";
       anchor.href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G18&src=nav"
       //image.href="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/1808x1808.jpg";
     }
-  </script>
 
-  <script>
-    function moveToSatEast() {
+    function xmoveToSatEast() {
       // Get the image element by its ID
       let image = document.getElementById("geosta-image");
       console.log('in moveToSatEast, image: ', image)
@@ -391,32 +511,11 @@ console.log('utcTime: ', utcTime);
       anchor.href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G19&src=nav"
                  //https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg
     }
+
   </script>
 
-  <div class="center-container">
-    <div class="image-container">
 
 
-
-      <div>
-        <h2>GeoStationary satllites</h2>
-      </div>
-
-
-
-
-      <a  id="geosta-anchor" href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G18&src=nav">
-
-        <img id="geosta-image" class="target-image"
-          src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg">
-      </a>
-
-      <div class="selector-element">
-        <button class="button" onclick="moveToSatWest()" style="width: 50px; height: 35px;"> << </button>
-        <button class="button" onclick="moveToSatEast()" style="width: 50px; height: 35px;"> >> </button>
-      </div>
-    </div>
-  </div>
 
   <br><br>
 <!--
@@ -747,13 +846,13 @@ console.log('utcTime: ', utcTime);
 
     <div class="row_flex">
       <div class="column2" style="text-align: center;">
-        <h2>El Sueno & 101</h2>
+        <h2>El Sueno & 101 => E</h2>
         <a href="https://cwwp2.dot.ca.gov/vm/loc/d5/us101elsuenord.htm">
           <img src="https://cwwp2.dot.ca.gov/data/d5/cctv/image/us101elsuenord/us101elsuenord.jpg" style="width:100%">
         </a>
       </div>
       <div class="column2" style="text-align: center;">
-        <h2>Garden at 101</h2>
+        <h2>Garden at 101, => E</h2>
         <a href="https://cwwp2.dot.ca.gov/vm/loc/d5/us101gardenstreet.htm">
           <img src="https://cwwp2.dot.ca.gov/data/d5/cctv/image/us101gardenstreet/us101gardenstreet.jpg" style="width:100%">
         </a>
@@ -798,7 +897,8 @@ console.log('utcTime: ', utcTime);
 
           <td>
             <h2>Google Traffic</h2>
-            <a href="https://www.google.com/maps/@34.4351996,-119.816205,14.04z/data=!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
+            <!-- a href="https://www.google.com/maps/@34.4351996,-119.816205,14.04z/data=!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D" -->
+            <a href="https://www.google.com/maps/@34.4224626,-119.7610277,27263m/data=!3m1!1e3!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgyMy4wIKXMDSoASAFQAw%3D%3D"
               onclick="window.open(this.href, 'popupwindow', style='width:80%',
                        'scrollbars=yes,resizable=yes'); return false;">
 
@@ -898,9 +998,8 @@ console.log('utcTime: ', utcTime);
 
       <!-- EWX Snippet Map -->
       <script type="text/javascript" src="https://climateservices.chc.ucsb.edu/snippet.js"></script>
-
+<!--
       <div id="mySnippet"></div>
-
 
       <script type="text/javascript">
         new Snippet({
@@ -931,6 +1030,8 @@ console.log('utcTime: ', utcTime);
     </div>
 
       </script>
+-->
+
       <br>
       <br>
 
