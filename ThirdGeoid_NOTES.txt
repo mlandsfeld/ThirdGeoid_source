@@ -1,0 +1,211 @@
+ThirdGeoid NOTES
+
+Geostationary satellites ======
+
+
+himawari-9 ---
+https://slider.cira.colostate.edu/data/imagery/2026/08/28/himawari---full_disk/geocolor/
+20260828003000/00/000_000.png
+
+goes-19 ---
+https://slider.cira.colostate.edu/data/imagery/2026/08/28/goes-19---full_disk/geocolor/
+20260828011021/00/000_000.png
+20260828004021
+20260828005021
+20260828010021
+20260828011021
+
+goes-18 ---
+https://slider.cira.colostate.edu/data/imagery/2026/08/28/goes-18---full_disk/geocolor/
+20260828004021/00/000_000.png
+
+GEO-KOMPSAT-2a ---
+https://slider.cira.colostate.edu/data/imagery/2026/08/28/gk2a---full_disk/geocolor/
+20260828005000/00/000_000.png
+
+
+meteosat-9 *** 2026-07-06 latest date *** Working on alternative
+https://slider.cira.colostate.edu/data/imagery/2026/07/06/meteosat-9---full_disk/geocolor/
+20260706171500/00/000_000.png
+
+meteosat-10 ---
+https://slider.cira.colostate.edu/data/imagery/2026/07/06/meteosat-0deg---full_disk/geocolor/
+20260706164500/00/000_000.png
+
+meteosat-12 ---
+https://slider.cira.colostate.edu/data/imagery/2026/07/06/meteosat-12---full_disk/geocolor/
+20260706174000/00/000_000.png
+
+
+
+==================
+
+Meteosat ---
+Fulldisk, solar zenith of day:
+  https://pics.eumetsat.int/images/20260827_Meteosat-12.jpg
+
+
+
+can you make two javascript functions named "moveEast" and "moveWest"
+that cyle through an array if images:
+["image1", "image2", "image3"]
+at a image element in the html defined by this
+<img id="geosta-image">
+using two button elements displaying the text " >> " and " << "
+
+<img id="geosta-image" src="image1" alt="Geosta image">
+
+<button onclick="moveWest()"> &lt;&lt; </button>
+<button onclick="moveEast()"> &gt;&gt; </button>
+
+<script>
+  const images = [
+    "image1",
+    "image2",
+    "image3"
+  ];
+
+  let currentImage = 0;
+
+  function moveEast() {
+    currentImage = (currentImage + 1) % images.length;
+
+    document.getElementById("geosta-image").src =
+      images[currentImage];
+  }
+
+  function moveWest() {
+    currentImage =
+      (currentImage - 1 + images.length) % images.length;
+
+    document.getElementById("geosta-image").src =
+      images[currentImage];
+  }
+</script>
+
+
+Behavior:
+
+Clicking >> calls moveEast():
+image1 → image2 → image3 → image1
+Clicking << calls moveWest():
+image1 → image3 → image2 → image1
+
+============================
+
+Sunrise times at home -----
+
+Got SunriseSunsetTimes.csv table from: https://arachnoid.com/lutusp/sunrise/
+
+cat SunriseSunsetTimes.csv | sed 's/,/ /g' | field 1,2 > SunriseTime.csv
+
+h SunriseTime.csv
+2026-01-01 08:06:51
+2026-01-02 08:07:02
+2026-01-03 08:07:10
+2026-01-04 08:07:18
+2026-01-05 08:07:23
+2026-01-06 08:07:26
+2026-01-07 08:07:28
+
+This package has installed:
+	•	Node.js v24.16.0 to /usr/local/bin/node
+	•	npm v11.13.0 to /usr/local/bin/npm
+Make sure that /usr/local/bin is in your $PATH.
+
+
+Hand picked for 5 minute changes in sunrise time -- stopped doing this
+2026-04-06,06:40:45
+2026-01-01,08:06:51
+2026-01-28,08:00:50
+2026-02-05,07:55:00
+2026-02-10,07:50:34
+2026-02-15,07:45:36
+2026-02-20,07:40:09
+2026-02-24,07:35:31
+2026-02-28,07:30:39
+2026-03-04,07:25:35
+2026-03-08,07:20:22
+2026-03-12,07:15:01
+2026-03-15,07:10:57
+2026-03-19,07:05:28
+2026-03-23,06:59:56
+2026-03-26,06:55:47
+2026-03-30,06:50:16
+2026-04-03,06:44:48
+2026-04-06,06:40:45
+
+
+
+
+
+------------
+
+Major Geostationary Systems
+GOES (U.S.): GOES-East (over Americas/Atlantic) and GOES-West (over Americas/Pacific).
+Meteosat (Europe): Covers Europe, Africa, and the Atlantic.
+Himawari (Japan): Covers Southeast Asia, Australia, and the Pacific.
+INSAT (India): Covers South Asia, West Africa, and the Indian Ocean.
+
+GeoStationary set from CO State
+https://slider.cira.colostate.edu
+
+https://slider.cira.colostate.edu/data/imagery/2026/02/03/gk2a---full_disk/geocolor/20260203232000/00/000_000.png
+https://slider.cira.colostate.edu/data/imagery/2026/02/03/gk2a---full_disk/geocolor/20260203233000/00/000_000.png
+
+https://slider.cira.colostate.edu/data/imagery/2026/02/04/goes-19---full_disk/geocolor/20260204013020/00/000_000.png
+
+-------------------------------
+
+NESDIS satellite images:
+https://cdn.star.nesdis.noaa.gov/GOES18/ABI/SECTOR/psw/GEOCOLOR/20260331831_GOES18-ABI-psw-GEOCOLOR-1200x1200.jpg
+Notes: image naming minutes start at 01 incremented by 5 minutes 2026/2/3
+https://cdn.star.nesdis.noaa.gov/GOES18/ABI/SECTOR/wus/GEOCOLOR/20260331810_GOES18-ABI-wus-GEOCOLOR-1000x1000.jpg
+Notes: image naming minutes start at 00 incremented by 10 minutes 2026/2/3
+       sizes: 250x250, 500x, 1000x, 2000x, 4000x
+---------------------
+Attempt to get html2canvas to work before realizing that it only works within your own browser...
+
+script src="./html2canvas.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+
+<form method="POST" enctype="multipart/form-data" action="/save" id="myForm">
+    <input type="hidden" name="img_val" id="img_val" value="" />
+</form>
+
+<div id="more">
+<h1> hello </h1>
+<button onclick="take()"> take </button>
+</div>
+
+<script>
+window.take = function() {
+  html2canvas(document.getElementById("more"), {
+    onrendered: function (canvas) {
+      document.getElementById('img_val').value = canvas.toDataURL("image/png");
+      document.getElementById("myForm").submit();
+    }
+  })
+}
+</script>
+
+
+<script src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+<div id="capture">
+    <div class="wp-block-button is-style-fill"><a class="wp-block-button__link">Click me!</a></div>
+</div>
+<button type="button" class="btnScreenShot" id="btnScreenShot">Take a Screenshot</button>
+<div id="output"></div>
+
+<div id="capture" style="padding: 10px; background: #f5da55;">
+    <h4>Hello world!</h4>
+</div>
+
+<script src="https://chc.ucsb.edu/"></script>
+
+html2canvas(document.querySelector("#capture")).then(canvas => {
+    document.body.appendChild(canvas);
+});
+---------------------
