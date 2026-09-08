@@ -24,7 +24,7 @@
     </style>
 
 
-    <!-- ===== Javascript Functions ======== ->
+    <!-- ===== Javascript Functions ======== -->
 
 
     <!-- Sun Times calculations -->
@@ -50,9 +50,26 @@
         return Math.floor(diff / 86400000);
       }
 
+      var doy = dayOfYear(new Date());
+      console.log("Day of Year: ", doy);
 
       // Get UTC Time
       const utcTime = new Date().toISOString();
+
+
+      function findLastLessOrEqual(arr, value) {
+        //for (let i = arr.length - 1; i >= 0; i--) {
+        for (let i = 0; i <= arr.length; i++) {
+              if (arr[i] >= value) {
+                  return arr[--i];
+              }
+          }
+          return -1; // No value <= given value
+      }
+
+      const analemma_start_doy = [0,11,19,27,33,39,47,54,60,69,77,83,89,98,104,112,
+        118,125,135,144,153,160,171,182,196,205,214,223,230,236,244,253,259,
+        265,272,286,293,302,310,318,326,335,345,355,265];
 
 
       //window.open('https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day', '_blank');
@@ -60,7 +77,8 @@
       /*
         const { chromium } = require("playwright");
 
-        async function downloadForecastAsPNG() { 
+        async function downloadForecastAsPNG() {
+
           const url =
             "https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day";
 
@@ -220,7 +238,7 @@
 
 
   <style>
-  * {
+  {
   box-sizing: border-box;
   }
   .row_flex {
@@ -402,7 +420,7 @@ li.dropdown {
     var sunTimes = getSunTimes(40.7128, -74.0060);
     console.log('Sun Times: ', sunTimes);
 
-    var doy = dayOfYear(new Date());
+    // var doy = dayOfYear(new Date());
     console.log("Day of Year: ", doy);
 
     //downloadForecastAsPNG()
@@ -418,7 +436,7 @@ li.dropdown {
   <br>
   <!-- ============   GeoStationary Full disks  ============ -->
   <!-- Himawari-9
-    True color reproduction, https://www.data.jma.go.jp/mscweb/data/himawari/img/fd_/fd__trm_2320.jpg
+    True color, https://www.data.jma.go.jp/mscweb/data/himawari/img/fd_/fd__trm_2320.jpg
     Band 13 IR, https://www.data.jma.go.jp/mscweb/data/himawari/img/fd_/fd__b13_1950.jpg
     Consider oscillating between these two over 24 hour period....
   -->
@@ -442,7 +460,6 @@ li.dropdown {
         <div class="selector-element">
           <button class="button" onclick="moveFDWest()" style="width: 50px; height: 35px;"> << </button>
           <button class="button" onclick="moveFDEast()" style="width: 50px; height: 35px;"> >> </button>
-          <h2 style='color:yellow'>  Working! </h2>
         </div>
       </div>
     </div>
@@ -635,11 +652,11 @@ li.dropdown {
   </div>
 
 
-
-  <br>
   <br>
 
   <!-- ============ Willey Weather Forecast ============ -->
+
+  <h1> Willey Weather Forecasts</h1>
 
   <div style="width: 50%; margin-left:auto; margin-right:auto;">
     <iframe style="display: block;"
@@ -692,7 +709,42 @@ li.dropdown {
       margin: -92px 0 0 0" href="http://www.willyweather.com/ca/santa-barbara-county/goleta.html">Goleta weather</a>
   </div>
 -->
+
+
+
+  <!-- ============ Analemmas ============ -->
+
+  <h1> Analemmas</h1>
+  <div class="row_flex">
+    <div class="column2" style="text-align: center;">
+      <a href="https://paulpoteet.com/2025/03/20/the-solar-eclipse-analemma-project/">
+        <h2>Analemma</h2>
+      </a>
+      <a href="images/Analemma_HunterWells_zoom.png">
+        <img id="analemma"  style="width:50%">
+      </a>
+    </div>
+    <div class="column2" style="text-align: center;">
+      <h2>30 W Mission Wall Analemma</h2>
+     <a href="images/analemma_blue_marble.png">
+        <img src="images/analemma_blue_marble.png" style="width:80%">
+      </a>
+    </div>
+  </div>
   <br>
+  <br>
+
+
+  <script>
+    // src="images/analemma/analemma_244.png"
+
+    let analemma_img = document.getElementById("analemma");
+    const ana_doy = findLastLessOrEqual(analemma_start_doy, doy);
+    let analemma_filenane = "images/analemma/analemma_" + String(ana_doy).padStart(3,"0") + ".png";
+    console.log("Analemma file name: ", analemma_filenane);
+    analemma_img.src = analemma_filenane;
+
+  </script>
 
   <!-- ================== NOAA National Forecasts =================  -->
 
@@ -1050,29 +1102,6 @@ li.dropdown {
 
     <br>
     <br>
-
-    <!-- ============ Analemmas ============ -->
-
-    <h1> Analemmas</h1>
-    <div class="row_flex">
-      <div class="column2" style="text-align: center;">
-        <a href="https://paulpoteet.com/2025/03/20/the-solar-eclipse-analemma-project/">
-          <h2>Analemma</h2>
-        </a>
-        <a href="images/Analemma_HunterWells_zoom.png">
-          <img src="images/Analemma_HunterWells_zoom.png" style="width:50%">
-        </a>
-      </div>
-      <div class="column2" style="text-align: center;">
-        <h2>30 W Mission Wall Analemma</h2>
-       <a href="images/analemma_blue_marble.png">
-          <img src="images/analemma_blue_marble.png" style="width:80%">
-        </a>
-      </div>
-    </div>
-    <br>
-    <br>
-
 
 
     <!-- ============= Earthquake Map NOAA NWS ============= -->
