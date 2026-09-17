@@ -443,26 +443,26 @@ li.dropdown {
 
 
 
-    <div class="center-container">
-      <div class="image-container">
+  <div class="center-container">
+    <div class="image-container">
 
 
-        <div>
-          <h2>GeoStationary satllites</h2>
-        </div>
+      <div>
+        <h2>GeoStationary satllites</h2>
+      </div>
 
 
-        <a  id="geosta-anchor" href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G18&src=nav">
+      <a  id="geosta-anchor" href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G18&src=nav">
 
-          <img id="geosta-image" class="target-image">
-        </a>
+        <img id="geosta-image" class="target-image">
+      </a>
 
-        <div class="selector-element">
-          <button class="button" onclick="moveFDWest()" style="width: 50px; height: 35px;"> << </button>
-          <button class="button" onclick="moveFDEast()" style="width: 50px; height: 35px;"> >> </button>
-        </div>
+      <div class="selector-element">
+        <button class="button" onclick="moveFDWest()" style="width: 50px; height: 35px;"> << </button>
+        <button class="button" onclick="moveFDEast()" style="width: 50px; height: 35px;"> >> </button>
       </div>
     </div>
+  </div>
 
 
   <script>
@@ -500,38 +500,6 @@ li.dropdown {
   </script>
 
 
-  <script>
-
-    function xmoveToSatWest() {
-      // Get the image element by its ID
-      let image = document.getElementById("geosta-image");
-      console.log('in moveToSatWest, image: ', image)
-      let anchor = document.getElementById("geosta-anchor");
-      console.log('in moveToSatWest, anchor: ', anchor)
-      console.log('utcTime: ', utcTime);
-
-      // Set the new image source (replace with your image URL or path)
-      image.src= "https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg";
-      anchor.href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G18&src=nav"
-      //image.href="https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/1808x1808.jpg";
-    }
-
-    function xmoveToSatEast() {
-      // Get the image element by its ID
-      let image = document.getElementById("geosta-image");
-      console.log('in moveToSatEast, image: ', image)
-      let anchor = document.getElementById("geosta-anchor");
-      console.log('in moveToSatEast, anchor: ', anchor)
-
-      // Set the new image source (replace with your image URL or path)
-      image.src = "https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/678x678.jpg";
-      anchor.href="https://www.star.nesdis.noaa.gov/GOES/fulldisk.php?sat=G19&src=nav"
-                 //https://cdn.star.nesdis.noaa.gov/GOES17/ABI/FD/GEOCOLOR/678x678.jpg
-    }
-
-  </script>
-
-
 
 
   <br><br>
@@ -556,42 +524,68 @@ li.dropdown {
 
   <!-- ============   Moon Phase  ============ -->
 
-<div class="center-container">
-<div class="image-container">
+  <div class="center-container">
+    <div class="image-container">
 
-  <div style="width: 60%; margin-left:auto; margin-right:auto;">
-    <iframe style="display: block;"
-      src="https://cdnres.willyweather.com/widget/loadView.html?id=160250"
-        width="20%" height="200px" frameborder="0" scrolling="no">
-    </iframe>
-    <!-- *** this anchor is not really needed -->
-    <a
-      style="height: 20px;display: block;margin: -20px 0 0 0;z-index: 1;text-indent: -9999em;
-      position: relative"
-      href="https://www.willyweather.com/ca/santa-barbara-county/goleta.html" rel="nofollow">
-      Moon Phase
-    </a>
+      <div style="width: 60%; margin-left:auto; margin-right:auto;">
+        <iframe style="display: block;"
+          src="https://cdnres.willyweather.com/widget/loadView.html?id=160250"
+            width="20%" height="200px" frameborder="0" scrolling="no">
+        </iframe>
+        <!-- *** this anchor is not really needed -->
+        <a
+          style="height: 20px;display: block;margin: -20px 0 0 0;z-index: 1;text-indent: -9999em;
+          position: relative"
+          href="https://www.willyweather.com/ca/santa-barbara-county/goleta.html" rel="nofollow">
+          Moon Phase
+        </a>
+      </div>
+
+    </div>
   </div>
 
-</div>
-</div>
-
 
   <br>
   <br>
 
 
-    <!-- ============ SSEC US Composite =========== -->
+  <!-- ============ SSEC US Composite ===========
+    7 day ani:  https://www.ssec.wisc.edu/data/us_comp/movie -->
 
-    <div class="center-container">
+  <div class="center-container">
+    <div class="image-container">
 
-      <h2> SSEC US Composite </h2>
+
+      <div>
+        <h2>SSEC US Composite</h2>
+      </div>
+
 
       <a href="https://www.ssec.wisc.edu/data/us_comp/large">
         <img width="80%" height="80%" src="http://www.ssec.wisc.edu/data/us_comp/image7.jpg">
       </a>
-      <br>
+
+
+      <div class="selector-element">
+        <button href="https://www.ssec.wisc.edu/data/us_comp/large"
+          style="width: 250px; height: 35px;"> 12 hour animation </button>
+
+        <button href="https://www.ssec.wisc.edu/data/us_comp/movie"
+          style="width: 250px; height: 35px;"> 7 day animation </button>
+      </div>
     </div>
+  </div>
+
+
+  <div class="center-container">
+
+    <h2> SSEC US Composite </h2>
+
+    <a href="https://www.ssec.wisc.edu/data/us_comp/large">
+      <img width="80%" height="80%" src="http://www.ssec.wisc.edu/data/us_comp/image7.jpg">
+    </a>
+    <br>
+  </div>
 
 
   <!-- ============ GOES West Coast  ============ -->
