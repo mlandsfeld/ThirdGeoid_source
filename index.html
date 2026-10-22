@@ -565,16 +565,49 @@ li.dropdown {
         <img width="80%" height="80%" src="http://www.ssec.wisc.edu/data/us_comp/image7.jpg">
       </a>
 
-
       <div class="selector-element">
-        <button href="https://www.ssec.wisc.edu/data/us_comp/large"
-          style="width: 250px; height: 35px;"> 12 hour animation </button>
+        <button style="width: 250px; height: 35px;"
+          onclick="window.open('https://www.ssec.wisc.edu/data/us_comp/large', '_self',
+            'scrollbars=yes,resizable=yes,menubar=true,toolbar=yes');">
+          12 hour animation
+        </button>
 
-        <button href="https://www.ssec.wisc.edu/data/us_comp/movie"
-          style="width: 250px; height: 35px;"> 7 day animation </button>
+        <button style="width: 250px; height: 35px;"
+          onclick="window.open('https://www.ssec.wisc.edu/data/us_comp/movie', '_self',
+            'scrollbars=yes,resizable=yes,menubar=true,toolbar=yes');">
+          7 day animationx
+        </button>
+
       </div>
     </div>
   </div>
+
+
+  <!--
+    <div class="selector-element">
+      <button class="button" onclick="ssec12hrAni()" style="width: 250px; height: 35px;"> 12 hour animation </button>
+      <button class="button" onclick="ssec7dayAni()" style="width: 250px; height: 35px;"> 7 day animation </button>
+    </div>
+
+
+  </script>
+    function ssec12hrAni() {
+      currentImage = (currentImage + 1) % fullDiskImg.length;
+      console.log('currentImage = ', currentImage);
+
+      document.getElementById("geosta-image").src = fullDiskImg[currentImage];
+    }
+
+    function ssec7dayAni() {
+      currentImage =
+        (currentImage - 1 + fullDiskImg.length) % fullDiskImg.length;
+      console.log('currentImage = ', currentImage);
+
+      document.getElementById("geosta-image").src = fullDiskImg[currentImage];
+    }
+
+  </script>
+-->
 
 
   <!-- ============ GOES West Coast  ============ -->
@@ -591,26 +624,25 @@ li.dropdown {
     <li class="dropdown">
       <h2 href="javascript:void(0)" class="dropbtn" style='color:yellow'>Animate at Source, Select Length </h2>
       <div class="dropdown-content">
-        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=06&dim=1">
+        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=06&src=nav">
           1/2 hour
         </a>
-        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=12&dim=1">
+        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=12&src=nav">
           1 hour
         </a>
-        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=24&dim=1">
+        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=24&src=nav">
           2 hours
         </a>
-        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=48&dim=1">
+        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=48&src=nav">
           4 hours
         </a>
-        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=72&dim=1">
+        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=72&src=nav">
           6 hours
         </a>
-        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=120&dim=1">
+        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=120&src=nav">
           10 hours
         </a>
-        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=240&dim=1">
-                 https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G19&sector=cgl&band=GEOCOLOR&length=12&src=nav
+        <a href="https://www.star.nesdis.noaa.gov/GOES/sector_band.php?sat=G18&sector=psw&band=GEOCOLOR&length=240&src=nav">
           20 hours
         </a>
       </div>
@@ -912,7 +944,7 @@ li.dropdown {
           <td>
             <h2>Astronomy, Pic of Day</h2>
             <a href="https://apod.nasa.gov/apod/astropix.html"
-              onclick="window.open(this.href, 'popupwindow2',
+              onclick="window.open(this.href, '_self',
                 'scrollbars=yes,resizable=yes,menubar=true,toolbar=yes'">
 
               <img style="width:95%" src="images/links/Astronomy_POD_icon.png">
