@@ -187,7 +187,7 @@
         async defer>
     </script>
 
-    <title>Third Geoid Home</title>
+    <title>Third Geoid</title>
 
     <!-- Style for Nav Bar   -->
     <style>
@@ -256,6 +256,12 @@ h1 {
   font-size: 40;
   text-align: center;
   color: midnightblue;
+}
+
+h1-g {
+  font-size: 80;
+  text-align: center;
+  color: ForestGreen;
 }
 
 
@@ -448,8 +454,8 @@ li.dropdown {
 
 
       <div>
-        <h1>Third Geoid</h1>
-        <h2>(from the Sun)</h2> 
+        <h1-g>Third Geoid x</h1-g>
+        <h3>(from the Sun)</h3>
       </div>
 
       <br>
@@ -550,6 +556,11 @@ li.dropdown {
   <br>
   <br>
 
+  <iframe loading="lazy" src="https://forecast.weather.gov/MapClick.php?CityName=Solvang&amp;state=CA&amp;site=LOX&amp;textField1=34.5958&amp;textField2=-120.137&amp;e=0#.W28Flbj2OCk" name="I1" width="1234" height="887"></iframe>
+<h2>testing... </h2>
+
+  <iframe loading="lazy" src="https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day" name="I1" width="1234" height="887"></iframe>
+https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day
 
   <!-- ============ SSEC US Composite ===========
     7 day ani:  https://www.ssec.wisc.edu/data/us_comp/movie -->
@@ -1066,40 +1077,41 @@ li.dropdown {
       <h2> Click on map to zoom with mouse </h2>
 
       <!-- EWX Snippet Map -->
-      <script type="text/javascript" src="https://climateservices.chc.ucsb.edu/snippet.js"></script>
-<!--
+      <!-- script type="text/javascript" src="https://climateservices.chc.ucsb.edu/snippet.js"></script -->
+      <script type="text/javascript" src="https://mlandsfeld.github.io/ThirdGeoid_source/snippet.js"></script>
+
       <div id="mySnippet"></div>
 
-      <script type="text/javascript">
-        new Snippet({
-          ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
-          id: 'mySnippet',
-          dataset: 'CHIRPS3GEFS',
-          subDataset: 'chirps3_gefs',
-          region: 'global',
-          periodicity: '1-day',
-          period: 'latest',
-          forecastPeriod: '10day',
-          showDekadControl: true,
-          showYearControl: true,
-          units: 'mm',
-          statistic: 'data',
-          width: 1000,
-          height: 500,
-          zoom: 4.4,
-          center: [38, -95],
-          showGaul20080: true,
-          showGaul20081: true,
-          showGaul20082: false,
-          showKenyaWards: false,
-          scrollWheelZoom: false,
-        });
+        <script type="text/javascript">
+          new Snippet({
+            ewxUrl: 'https://ewx3.chc.ucsb.edu/ewx',
+            id: 'mySnippet',
+            dataset: 'CHIRPS3GEFS',
+            subDataset: 'chirps3_gefs',
+            region: 'global',
+            periodicity: '1-day',
+            period: 'latest',
+            forecastPeriod: '10day',
+            showDekadControl: true,
+            showYearControl: true,
+            units: 'mm',
+            statistic: 'data',
+            width: 1000,
+            height: 600,
+            zoom: 4.0,
+            center: [38, -100],
+            showGaul20080: true,
+            showGaul20081: true,
+            showGaul20082: false,
+            showKenyaWards: false,
+            scrollWheelZoom: false,
+          });
+        </script>
+
+      </div>
+
       </script>
 
-    </div>
-
-      </script>
--->
 
       <br>
       <br>
