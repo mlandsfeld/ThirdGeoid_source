@@ -1,5 +1,211 @@
 ThirdGeoid NOTES
 
+
+======
+For Geostationaries !!!
+https://slider.cira.colostate.edu/?sat=goes-18&sec=full_disk&x=10848&y=10848&z=0&angle=0&im=12&ts=1&st=0&et=0&speed=130&motion=loop&maps%5Bborders%5D=white&p%5B0%5D=geocolor&opacity%5B0%5D=1&pause=20261128031021&slider=-1&hide_controls=0&mouse_draw=0&follow_feature=0&follow_hide=0&s=rammb-slider&draw_color=FFD700&draw_width=6
+
+https://slider.cira.colostate.edu/data/imagery/2026/11/28/
+goes-19---full_disk/geocolor/20261128034020/00/000_000.png
+https://slider.cira.colostate.edu/data/imagery/2026/11/28/
+goes-18---full_disk/geocolor/20261128031021/00/000_000.png
+https://slider.cira.colostate.edu/data/imagery/2026/11/28/
+himawari---full_disk/geocolor/20261128031000/00/000_000.png
+https://slider.cira.colostate.edu/data/imagery/2026/11/28/
+gk2a---full_disk/geocolor/20261128032000/00/000_000.png
+https://slider.cira.colostate.edu/data/imagery/2026/11/28/
+meteosat-12---full_disk/geocolor/20261128013000/00/000_000.png
+
+=====
+
+NWS iframe using MapClick.pro
+
+<iframe loading="lazy" src="https://forecast.weather.gov/MapClick.php?CityName=Solvang&amp;state=CA&amp;site=LOX&amp;textField1=34.5958&amp;textField2=-120.137&amp;e=0#.W28Flbj2OCk"
+  name "I1" width="1200" height="800"></iframe>
+<h2>testing... </h2>
+
+<iframe loading="lazy" src="https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day" name="I1" width="1234" height="887"></iframe>
+https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day
+
+
+==========
+Asked ChatGPT:
+
+can you show me the code to screenshot this web page and make a png file of it?
+https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day
+
+Answer:
+
+The most reliable way to do this is with Playwright, which can open the Weather Underground page in Chrome (Chromium), capture the page, and save the result as a PNG image.
+
+This approach can capture the entire page, not just the portion currently visible on your screen.
+1. Install Playwright
+If you have Node.js installed, open Terminal and run:
+npm install playwright
+npx playwright install chromium
+
+
+2. Create the screenshot program
+Save the following as screenshot-weather.js:
+
+const { chromium } = require('playwright');
+
+async function takeScreenshot() {
+    const browser = await chromium.launch({
+        headless: true
+    });
+
+    const page = await browser.newPage({
+        viewport: {
+            width: 1440,
+            height: 1000
+        },
+        deviceScaleFactor: 1
+    });
+
+    const url =
+        'https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day';
+
+    // Open the Weather Underground forecast
+    await page.goto(url, {
+        waitUntil: 'domcontentloaded',
+        timeout: 60000
+    });
+
+    // Allow time for the forecast and graphics to load
+    await page.waitForTimeout(10000);
+
+    // Save a full-page PNG screenshot
+    await page.screenshot({
+        path: 'Goleta_Weather.png',
+        fullPage: true,
+        type: 'png'
+    });
+
+    console.log('Screenshot saved as Goleta_Weather.png');
+
+    await browser.close();
+}
+
+takeScreenshot();
+
+
+
+3. Run it
+In Terminal, navigate to the directory containing the JavaScript file and execute:
+node screenshot-weather.js
+
+
+You should end up with:
+Goleta_Weather.png
+
+A couple of useful options
+The screenshot command has two particularly useful settings:
+Setting	Result
+fullPage: true	Captures the entire scrollable webpage
+fullPage: false	Captures only the visible browser window
+
+The screenshot is saved as a PNG, so there is no need for a separate image conversion step. Playwright documents these options here.
+Playwright+1
+
+
+One thought: If your intention is to capture this forecast regularly (for example, once each morning), we can easily modify this program to add the date and time to the PNG filename and run it automatically.
+
+
+
+================================
+
+how could I run this on a mac mini Terminal window
+
+=====
+
+You can run it directly from the Terminal application on your Mac mini. Once it's set up, taking a screenshot will be as simple as typing:
+node screenshot-weather.js
+
+
+Here are the steps to get everything installed and working.
+Step 1. Open Terminal
+On your Mac mini:
+1. Open Finder.
+2. Go to Applications → Utilities.
+3. Double-click Terminal.
+You'll get a command prompt where you can enter the commands below.
+Step 2. Check whether Node.js is installed
+Type this and press Return:
+node --version
+
+
+If you see something like v22.0.0, you're all set for the next step.
+
+If Terminal says command not found, you'll need to install Node.js first.
+
+If you get command not found, go to https://nodejs.org, download the LTS version for macOS, and run the installer. Then close and reopen Terminal.
+Step 3. Create a folder for your program
+Copy and paste these commands into Terminal:
+mkdir -p ~/weather-screenshot
+cd ~/weather-screenshot
+
+
+This creates a folder called weather-screenshot in your home directory and moves Terminal into it.
+Step 4. Install Playwright
+Enter:
+npm install playwright
+
+
+Then install its Chromium browser:
+npx playwright install chromium
+
+
+This may take a minute or two.
+Step 5. Create your JavaScript file
+Enter:
+nano screenshot-weather.js
+
+
+This opens a simple text editor right inside Terminal.
+
+Paste the complete JavaScript program from my previous message into the editor.
+
+To save it:
+1. Press Control-O (the letter O, not zero).
+2. Press Return to confirm the filename.
+3. Press Control-X to exit.
+Step 6. Run your program!
+You should now be back at the Terminal prompt. Enter:
+node screenshot-weather.js
+
+
+After the webpage loads and the screenshot is captured, you should see:
+Screenshot saved as Goleta_Weather.png
+
+
+Your PNG will be located in:
+~/weather-screenshot/Goleta_Weather.png
+
+
+You can open the folder in Finder by entering:
+open .
+
+
+That's it!
+Your complete Terminal command sequence
+Once Node.js is installed, these are the commands you'll use for the initial setup:
+mkdir -p ~/weather-screenshot
+cd ~/weather-screenshot
+npm install playwright
+npx playwright install chromium
+nano screenshot-weather.js
+
+
+After saving the JavaScript file, you only need this one command whenever you want another screenshot:
+cd ~/weather-screenshot
+node screenshot-weather.js
+
+
+One suggestion: Since you're using a Mac mini, we could also modify the program to automatically save a new screenshot every morning, with the date and time included in the filename.
+
+=========
+
 1/11 011
 1/19 019
 1/27 027
