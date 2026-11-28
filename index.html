@@ -70,7 +70,13 @@
       const analemma_start_doy = [0,11,19,27,33,39,47,54,60,69,77,83,89,98,104,112,
         118,125,135,144,153,160,171,182,196,205,214,223,230,236,244,253,259,
         265,272,286,293,302,310,318,326,335,345,355,265];
-
+/*
+      let analemma_img = document.getElementById("analemma");
+      const ana_doy = findLastLessOrEqual(analemma_start_doy, doy);
+      let analemma_filenane = "images/analemma/analemma_" + String(ana_doy).padStart(3,"0") + ".png";
+      console.log("Analemma file name: ", analemma_filenane);
+      analemma_img.src = analemma_filenane;
+*/
 
       //window.open('https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day', '_blank');
 
@@ -454,7 +460,7 @@ li.dropdown {
 
 
       <div>
-        <h1-g>Third Geoid x</h1-g>
+        <h1>Third Geoid</h1>
         <h3>(from the Sun)</h3>
       </div>
 
@@ -556,11 +562,7 @@ li.dropdown {
   <br>
   <br>
 
-  <iframe loading="lazy" src="https://forecast.weather.gov/MapClick.php?CityName=Solvang&amp;state=CA&amp;site=LOX&amp;textField1=34.5958&amp;textField2=-120.137&amp;e=0#.W28Flbj2OCk" name="I1" width="1234" height="887"></iframe>
-<h2>testing... </h2>
 
-  <iframe loading="lazy" src="https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day" name="I1" width="1234" height="887"></iframe>
-https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day
 
   <!-- ============ SSEC US Composite ===========
     7 day ani:  https://www.ssec.wisc.edu/data/us_comp/movie -->
@@ -745,22 +747,23 @@ https://www.wunderground.com/forecast/us/ca/goleta?cm_ven=localwx_10day
   <h1> Analemmas</h1>
   <div class="row_flex">
     <div class="column2" style="text-align: center;">
-      <a href="https://paulpoteet.com/2025/03/20/the-solar-eclipse-analemma-project/">
-        <h2>Analemma</h2>
+      <h2>Current position in Analemma</h2>
       </a>
-      <a href="images/Analemma_HunterWells_zoom.png">
+      <a href="https://paulpoteet.com/2025/03/20/the-solar-eclipse-analemma-project">
         <img id="analemma"  style="width:50%">
       </a>
     </div>
     <div class="column2" style="text-align: center;">
       <h2>30 W Mission Wall Analemma</h2>
-     <a href="images/analemma_blue_marble.png">
+      <a href="images/analemma_blue_marble.png">
         <img src="images/analemma_blue_marble.png" style="width:80%">
       </a>
     </div>
   </div>
   <br>
   <br>
+
+
 
 
   <script>
